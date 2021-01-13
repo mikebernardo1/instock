@@ -8,12 +8,13 @@ $mobile-breakpoint: 320px;
 //------------------------------
 // Fonts
 //------------------------------
-$titillum-reg: "Titillium Web Regular";
-$titillium-semibold: "Titillium Web Semi-Bold";
+$titillum-reg: 'Titillium Web Regular';
+$titillium-semibold: 'Titillium Web Semi-Bold';
 
 //------------------------------
 // Sizing (margins, etc.)
 //------------------------------
+
 
 //------------------------------
 // Color palette
@@ -21,20 +22,18 @@ $titillium-semibold: "Titillium Web Semi-Bold";
 
 // Text variables
 $in-stock-label: #158463;
-$out-of-stock-label: #c94515;
-$placeholder-text: #5c667e;
-$primary-text-color: #13182c;
-$table-column-header: #5c667e;
-$text-color-nav-active: #ffffff;
-$text-color-nav-inactive: #bdc5d5;
+$out-of-stock-label: #C94515;
+$placeholder-text: #5C667E;                       
+$primary-text-color: #13182C;
+$table-column-header: #5C667E; 
 
 // Fills
-$cta-background: #f7f8f9;
+$cta-background: #F7F8F9;
 $cta-button-hover-background: #232940;
-$interactive-elements-fill: #2e66e5;
-$outlines-fill: #bdc5d5;
-$page-background: #f7f8f9;
-$table-column-header-background: #f7f8f9;
+$interactive-elements-fill: #2E66E5;
+$outlines-fill: #BDC5D5;
+$page-background: #F7F8F9;
+$table-column-header-background: #F7F8F9;
 $top-nav-background: #232940;
-$white: #ffffff;
-$black: #13182c;
+$white: #FFFFFF;
+
