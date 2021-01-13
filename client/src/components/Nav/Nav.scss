@@ -1,0 +1,40 @@
+@import "../../styles/variables";
+@import "../../styles/typography";
+@import "../../styles/mixins";
+
+.nav {
+	background-color: $top-nav-background;
+	height: 200px;
+	&__block {
+		@include flex(column, space-between, center);
+		height: 120px;
+		width: 90vw;
+		margin: auto;
+		&-logo {
+			&-img {
+				margin: 24px;
+			}
+		}
+		&-list {
+			@include flex(row, space-between, center);
+			width: 100%;
+			&-item {
+				font-family: $titillium-semibold;
+				font-size: 13px;
+				text-align: center;
+				text-decoration: none;
+				color: $text-color-nav-inactive;
+				padding: 8px;
+				border-radius: 20px;
+				width: 45%;
+				&:hover {
+					text-decoration: underline;
+				}
+				&--active {
+					background-color: $black;
+					color: $text-color-nav-active;
+				}
+			}
+		}
+	}
+}
