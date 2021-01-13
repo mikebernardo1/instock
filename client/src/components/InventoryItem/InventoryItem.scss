@@ -1,0 +1,44 @@
+@import "../../styles/mixins";
+@import "../../styles/partials";
+@import "../../styles/variables";
+
+.item {
+	&__block {
+		&-header {
+			&-back {
+			}
+			&-title {
+			}
+			&-edit {
+			}
+		}
+		&-main {
+			&-desc {
+				&-top {
+					&-title {
+					}
+					&-detail {
+						&--extended {
+						}
+					}
+				}
+				&-type {
+					&-title {
+					}
+					&-text {
+					}
+				}
+			}
+			&-info {
+				&-block {
+					&-title {
+					}
+					&-text {
+						&--stock {
+						}
+					}
+				}
+			}
+		}
+	}
+}

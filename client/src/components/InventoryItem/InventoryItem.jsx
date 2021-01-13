@@ -1,0 +1,46 @@
+import React from 'react'
+import './InventoryItem.scss'
+import BackArrow from '../../assets/icons/arrow_back-24px.svg';
+import EditPencil from '../../assets/icons/edit-24px.svg';
+
+function InventoryItem() {
+  return (
+    <article className="item">
+      <div className="item__block">
+        <header className="item__block-header">
+          <img className="item__block-header-back" src={BackArrow} alt="Back"/>
+          <h2 className="item__block-header-title">Television</h2>
+          <img className="item__block-header-edit" src={EditPencil} alt="Edit"/>
+        </header>
+        <main className="item__block-main">
+          <div className="item__block-main-desc">
+            <div className="item__block-main-desc">
+              <h3 className="item__block-main-desc-title">Item Description</h3>
+              <p className="item__block-main-desc-detail">This 50", 4K LED TV provides a crystal-clear picture and vivid colors.</p>
+            </div>
+            <div className="item__block-main-type">
+              <h3 className="item__block-main-type-title">Category</h3>
+              <div className="item__block-main-type-text">Electronics</div>
+            </div>
+          </div>
+          <div className="item__block-main-info">
+            <div className="item__block-main-info-block">
+              <h3 className="item__block-main-info-block-title">Status</h3>
+              <div className="item__block-main-info-block-text">In Stock</div>
+            </div>
+            <div className="item__block-main-info-block">
+              <h3 className="item__block-main-info-block-title">Quantity</h3>
+              <div className="item__block-main-info-block-text">500</div>
+            </div>
+            <div className="item__block-main-info-block">
+              <h3 className="item__block-main-info-block-title">Warehouse</h3>
+              <div className="item__block-main-info-block-text">Manhattan</div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </article>
+  )
+}
+
+export default InventoryItem
