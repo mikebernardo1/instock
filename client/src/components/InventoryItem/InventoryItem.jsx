@@ -15,25 +15,29 @@ function InventoryItem() {
         <main className="item__block-main">
           <div className="item__block-main-desc">
             <div className="item__block-main-desc-top">
-              <h3 className="item__block-main-desc-top-title">Item Description</h3>
+              <h3 className="item__block-main-desc-top-title">Item Description:</h3>
               <p className="item__block-main-desc-top-detail item__block-main-desc-top-detail--expanded">This 50", 4K LED TV provides a crystal-clear picture and vivid colors.</p>
             </div>
             <div className="item__block-main-desc-type">
-              <h3 className="item__block-main-desc-type-title">Category</h3>
+              <h3 className="item__block-main-desc-type-title">Category:</h3>
               <div className="item__block-main-desc-type-text">Electronics</div>
             </div>
           </div>
           <div className="item__block-main-info">
             <div className="item__block-main-info-block">
-              <h3 className="item__block-main-info-block-title">Status</h3>
-              <div className="item__block-main-info-block-text item__block-main-info-block-text--stock">In Stock</div>
+              <h3 className="item__block-main-info-block-title">Status:</h3>
+              <div
+                // Class to be toggled for 'in -stock' items
+                className="item__block-main-info-block-text
+                          item__block-main-info-block-text--stock
+                          item__block-main-info-block-text--stock-in">In Stock</div>
             </div>
             <div className="item__block-main-info-block">
-              <h3 className="item__block-main-info-block-title">Quantity</h3>
+              <h3 className="item__block-main-info-block-title">Quantity:</h3>
               <div className="item__block-main-info-block-text">500</div>
             </div>
             <div className="item__block-main-info-block">
-              <h3 className="item__block-main-info-block-title">Warehouse</h3>
+              <h3 className="item__block-main-info-block-title">Warehouse:</h3>
               <div className="item__block-main-info-block-text">Manhattan</div>
             </div>
           </div>
