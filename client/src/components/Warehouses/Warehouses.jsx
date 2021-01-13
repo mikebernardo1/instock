@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import WarehouseDelete from './WarehouseDelete';
 
-export default function warehouses() {
+export default function Warehouses() {
     return (
         <div>
+            <WarehouseDelete/>
         </div>
     )
 }
