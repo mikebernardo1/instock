@@ -14,6 +14,11 @@ router
 .get('/:id', (req, res) => {
     let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
     return res.send(inventoryID);
-    });
+    })
+
+.delete('/:id', (_req, res) => {
+    let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
+    return res.send('This test delete worked')
+});
 
 module.exports = router;
