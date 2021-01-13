@@ -1,4 +1,6 @@
-@import "../../styles/main.scss";
+@import "../../styles/mixins";
+@import "../../styles/partials";
+@import "../../styles/variables";
 
 .nav {
 	background-color: $top-nav-background;
@@ -20,11 +22,9 @@
 			width: 80vw;
 		}
 		&-logo {
-			&-img {
-				margin: 24px;
-				@include tablet {
-					margin: 32px 0;
-				}
+			margin: 24px;
+			@include tablet {
+				margin: 32px 0;
 			}
 		}
 		&-list {
@@ -42,6 +42,10 @@
 				padding: 8px;
 				width: 45%;
 				border-radius: 20px;
+				&--default {
+					background-color: $black;
+					color: $text-color-nav-active;
+				}
 				@include tablet {
 					width: auto;
 					margin-left: 20px;

@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Nav.scss';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/logo/InStock-Logo.svg'
 
 
-export default class Nav extends Component {
+class Nav extends React.Component {
   
-  componentDidMount() {
-    // console.log(this.props.path)
-  }
-
   render() {
     return (
       <header className="nav">
@@ -34,3 +30,5 @@ export default class Nav extends Component {
     )
   }
 }
+
+export default Nav;
