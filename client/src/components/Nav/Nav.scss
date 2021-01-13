@@ -1,32 +1,53 @@
-@import "../../styles/variables";
-@import "../../styles/typography";
-@import "../../styles/mixins";
+@import "../../styles/main.scss";
 
 .nav {
 	background-color: $top-nav-background;
 	height: 200px;
+	@include tablet {
+		height: 186px;
+	}
 	&__block {
 		@include flex(column, space-between, center);
 		height: 120px;
 		width: 90vw;
 		margin: auto;
+		@include tablet {
+			flex-direction: row;
+			height: 92px;
+			width: 91.5vw;
+		}
+		@include desktop {
+			width: 80vw;
+		}
 		&-logo {
 			&-img {
 				margin: 24px;
+				@include tablet {
+					margin: 32px 0;
+				}
 			}
 		}
 		&-list {
 			@include flex(row, space-between, center);
 			width: 100%;
+			@include tablet {
+				width: auto;
+			}
 			&-item {
 				font-family: $titillium-semibold;
-				font-size: 13px;
+				font-size: 1.3rem;
 				text-align: center;
 				text-decoration: none;
 				color: $text-color-nav-inactive;
 				padding: 8px;
-				border-radius: 20px;
 				width: 45%;
+				border-radius: 20px;
+				@include tablet {
+					width: auto;
+					margin-left: 20px;
+					padding: 8px 16px;
+					font-size: 1.4rem;
+				}
 				&:hover {
 					text-decoration: underline;
 				}
