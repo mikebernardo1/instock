@@ -3,6 +3,8 @@ import Nav from './components/Nav/Nav';
 import Warehouses from './components/Warehouses/Warehouses';
 import Inventory from './components/Inventory/Inventory';
 
+import './styles/main.scss';
+
 function App() {
   return (
     <div className="App">

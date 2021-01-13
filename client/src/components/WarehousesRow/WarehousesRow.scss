@@ -1,0 +1,120 @@
+@import '../../styles/_mixins';
+@import '../../styles/_partials';
+@import '../../styles/_variables';
+
+
+.data-row {
+    border-bottom: 1px solid $outlines-fill;
+    height: 197px;
+    padding: 16px 7.500vw 25px;
+
+    @include tablet {
+        height: 100px;
+        padding: 0 4.167vw 0;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    &__data-container {
+        height: 135px;
+        width: 100%;
+
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+
+        @include tablet {
+            height: unset;
+            width: 89%;
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__text-container {
+        // background-color: rgba(95, 158, 160, 0.5);
+        margin-bottom: 16px;
+        width: 47.1%;
+
+        @include tablet {
+            margin-bottom: 0;
+            width: unset;
+        }
+    }
+
+    &__text-label {
+        color: $table-column-header;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 16px;
+        margin-bottom: 5px;
+
+        &--warehouse-label {
+            margin-bottom: 0;
+        }
+
+        @include tablet {
+            display: none;
+            margin-bottom: 0;
+        }
+    }
+
+    &__text-data {
+        color: $primary-text-color; 
+        font-size: 1.1rem;
+        line-height: 17px;
+
+        &--warehouse-link {
+            color: $link-text;
+            display: inline;
+            font-weight: 600;
+        }
+
+        @include tablet {
+            width: 145px;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__right-arrow-icon {
+        height: 20px;
+        position: relative;
+        top: 7px;
+        width: auto;
+
+        @include tablet {
+            top: 6px;
+        }
+    }
+
+    &__actions-icons-container {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        @include tablet {
+            width: 9.33%;
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__action-icon {
+        height: 23px;
+        width: auto;
+    }
+
+
+
+}

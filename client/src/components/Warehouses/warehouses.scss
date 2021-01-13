@@ -1,0 +1,65 @@
+@import '../../styles/_mixins';
+@import '../../styles/_partials';
+@import '../../styles/_variables';
+
+.warehouses {
+    background-color: $data-list-background;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    margin: 0 5vw 0;
+    position: relative;
+    top: 136px;
+
+    &__header {
+        border-bottom: 1px solid $outlines-fill;
+        padding: 32px 7.500vw 0;
+
+        @include tablet {
+            border-bottom: none;
+            padding: 32px 4.167vw 0;
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-end;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 16px;
+
+        @include tablet {
+            font-size: 3.2rem;
+            margin-right: auto;
+        }
+    }
+
+    &__add-new-warehouse-button {
+        @extend %button-standard;
+        margin-bottom: 24px;
+        width: 100%;
+
+        @include tablet {
+            margin-left: 14px;
+            width: 168px;
+        }
+    }
+
+}
+
+.search {    
+    @extend %search;
+    margin-bottom: 16px;
+    
+    &__input {
+        @extend %search-input-field;
+        width: 100%;
+
+        @include tablet {
+            width: 185px;
+        }
+    }
+
+    &__icon {
+        @extend %search-input-field-icon;
+    }
+}
