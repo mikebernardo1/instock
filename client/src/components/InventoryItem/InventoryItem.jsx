@@ -14,19 +14,19 @@ function InventoryItem() {
         </header>
         <main className="item__block-main">
           <div className="item__block-main-desc">
-            <div className="item__block-main-desc">
-              <h3 className="item__block-main-desc-title">Item Description</h3>
-              <p className="item__block-main-desc-detail">This 50", 4K LED TV provides a crystal-clear picture and vivid colors.</p>
+            <div className="item__block-main-desc-top">
+              <h3 className="item__block-main-desc-top-title">Item Description</h3>
+              <p className="item__block-main-desc-top-detail item__block-main-desc-top-detail--expanded">This 50", 4K LED TV provides a crystal-clear picture and vivid colors.</p>
             </div>
-            <div className="item__block-main-type">
-              <h3 className="item__block-main-type-title">Category</h3>
-              <div className="item__block-main-type-text">Electronics</div>
+            <div className="item__block-main-desc-type">
+              <h3 className="item__block-main-desc-type-title">Category</h3>
+              <div className="item__block-main-desc-type-text">Electronics</div>
             </div>
           </div>
           <div className="item__block-main-info">
             <div className="item__block-main-info-block">
               <h3 className="item__block-main-info-block-title">Status</h3>
-              <div className="item__block-main-info-block-text">In Stock</div>
+              <div className="item__block-main-info-block-text item__block-main-info-block-text--stock">In Stock</div>
             </div>
             <div className="item__block-main-info-block">
               <h3 className="item__block-main-info-block-title">Quantity</h3>
