@@ -7,6 +7,7 @@
     border-bottom: 1px solid $outlines-fill;
     height: 197px;
     padding: 16px 7.500vw 25px;
+    width: 100%;
 
     @include tablet {
         height: 100px;
@@ -18,6 +19,9 @@
         align-items: center;
     }
 
+    @include desktop {
+        padding: 0 2.857vw 0;
+    }
 
     &__data-container {
         height: 135px;
@@ -29,7 +33,6 @@
 
         @include tablet {
             height: unset;
-            width: 89%;
 
             display: flex;
             flex-flow: row nowrap;
@@ -39,16 +42,14 @@
     }
 
     &__text-container {
-        // background-color: rgba(95, 158, 160, 0.5);
         margin-bottom: 16px;
-        width: 47.1%;
 
         @include tablet {
             margin-bottom: 0;
-            width: unset;
         }
     }
 
+    // Data label for mobile - I.e. "CONTACT NAME". Displays: None on tablet, desktop
     &__text-label {
         color: $table-column-header;
         font-weight: 600;
@@ -78,8 +79,8 @@
         }
 
         @include tablet {
-            width: 145px;
             font-size: 1.4rem;
+            line-height: 22px;
         }
     }
 
@@ -95,14 +96,11 @@
     }
 
     &__actions-icons-container {
-        width: 100%;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
 
         @include tablet {
-            width: 9.33%;
-
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
@@ -114,7 +112,4 @@
         height: 23px;
         width: auto;
     }
-
-
-
 }

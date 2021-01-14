@@ -13,7 +13,8 @@ export default function WarehousesRow() {
 
         <div className="data-row">
             <div  className="data-row__data-container">
-                <div className="data-row__text-container">
+
+                <div className="data-row__text-container col-1">
                     <p className="data-row__text-label data-row__text-label--warehouse-label">WAREHOUSE</p>
                     <Link to="/">
                         <p className="data-row__text-data data-row__text-data--warehouse-link">Santa Monica</p>
@@ -21,24 +22,25 @@ export default function WarehousesRow() {
                     </Link>
                 </div>
 
-                <div className="data-row__text-container">
+                <div className="data-row__text-container col-2">
                 <p className="data-row__text-label">ADDRESS</p>
                     <p className="data-row__text-data">890 Brannan Street, San Francisco, USA</p>
                 </div>
 
-                <div className="data-row__text-container">
+                <div className="data-row__text-container col-3">
                     <p className="data-row__text-label">CONTACT NAME</p>
                     <p className="data-row__text-data">Brad MacDonald</p>
                 </div>
 
-                <div className="data-row__text-container">
+                <div className="data-row__text-container col-4">
                     <p className="data-row__text-label">CONTACT INFORMATION</p>
                     <p className="data-row__text-data">+1 (450) 555-0103</p>
                     <p className="data-row__text-data">bmcdonald@instock.com</p>
                 </div>
             </div>
             
-            <div className="data-row__actions-icons-container">
+            {/* Action icons container */}
+            <div className="data-row__actions-icons-container col-5">
                 <img type="button" src={deleteIcon} alt="Delete" className="data-row__action-icon"/>
                 <img type="button" src={editIcon} alt="Edit" className="data-row__action-icon"/>
             </div>
