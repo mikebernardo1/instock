@@ -49,6 +49,8 @@
 			}
 			&-edit {
 				background-color: $interactive-elements-fill;
+				border: none;
+				cursor: pointer;
 				width: 37px;
 				height: 37px;
 				vertical-align: baseline;
@@ -76,8 +78,7 @@
 					@include tablet {
 						display: inline-block;
 						position: relative;
-						top: 7px;
-						left: 40px;
+						left: 12px;
 						color: $text-color-nav-active;
 						font-family: $titillium-semibold;
 						font-size: 1.4rem;

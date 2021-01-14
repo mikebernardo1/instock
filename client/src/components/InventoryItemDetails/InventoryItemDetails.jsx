@@ -5,7 +5,8 @@ import './InventoryItemDetails.scss';
 
 export class InventoryItemDetails extends Component {
 
-  apiURL = 'http://localhost:8080/inventory/'
+  apiURL = 'http://localhost:8080/inventory/';
+  requestedItem = this.props.match.params.id;
 
   state = {
     item: '',
@@ -17,8 +18,7 @@ export class InventoryItemDetails extends Component {
   }
 
   componentDidMount() {
-    let requestedItem = this.props.match.params.id;
-    this.apiFetchCall(requestedItem);
+    this.apiFetchCall(this.requestedItem);
   }
 
   apiFetchCall = (productID) => {
@@ -39,6 +39,10 @@ export class InventoryItemDetails extends Component {
 
   handleBackButton = () => {
     this.props.history.goBack();
+  }
+
+  handleEditButton = () => {
+    this.props.history.push(`/inventory/${this.requestedItem}/edit`);
   }
 
   render() {
@@ -69,7 +73,10 @@ export class InventoryItemDetails extends Component {
               </svg>
             </button>
             <h2 className="item__block-header-title">{this.state.item}</h2>
-            <div className="item__block-header-edit">
+            <button
+              className="item__block-header-edit"
+              onClick={this.handleEditButton}
+              >
               <svg
                 className="item__block-header-edit-svg"
                 width="24"
@@ -81,7 +88,7 @@ export class InventoryItemDetails extends Component {
                   fill="#2E66E6"/>
               </svg>
               <span className="item__block-header-edit-text">Edit</span>
-            </div>
+            </button>
           </header>
           <main className="item__block-main">
             <div className="item__block-main-desc">
