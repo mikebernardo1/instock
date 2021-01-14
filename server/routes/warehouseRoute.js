@@ -18,17 +18,17 @@ router
     return res.send(warehouseID);
     })
 
-.delete('/:id /inventory/:warehouseID', (req, res) => {
-    for (let i = j= 0; i < warehouses.length  && j < inventories.length; i++, j++)
+.delete('/:id', (req, res) => {
+    for (let i = j = 0; i < warehouses.length  && j < inventories.length; i++, j++)
     
     {
     let currentWarehouse = warehouses[i];
     let warehouseInventory = inventories[j];
 
         if ((currentWarehouse.id == req.params.id) && (warehouseInventory.warehouseID == currentWarehouse.id)){
-        warehouses.splice(i, 1) && inventories.splice(i,1);
+        warehouses.splice(i, 1) && inventories.splice(j,1);
 
-        return res.send(req.params.id + '' + 'is deleted');
+        return res.send(req.params.id + ' ' + 'is deleted');
         }
     }
 });
