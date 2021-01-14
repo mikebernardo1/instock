@@ -37,6 +37,10 @@ export class InventoryItemDetails extends Component {
       .catch((err) => console.log(err));
   }
 
+  handleBackButton = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     // Function to toggle class for stock status
     // inorder to apply custom styling depending on the stock status
@@ -49,16 +53,21 @@ export class InventoryItemDetails extends Component {
       <article className="item">
         <div className="item__block">
           <header className="item__block-header">
-            <svg
+            <button
               className="item__block-header-back"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
-                fill="#2E66E6"/>
-            </svg>
+              onClick={this.handleBackButton}
+            >
+              <svg
+                className="item__block-header-back-svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+                  fill="#2E66E6"/>
+              </svg>
+            </button>
             <h2 className="item__block-header-title">{this.state.item}</h2>
             <div className="item__block-header-edit">
               <svg
