@@ -28,29 +28,29 @@ export default function Warehouses() {
 
             {/* Column headings with Sort buttons - Displays:None on mobile */}
             <div className="columns-header">
-                <div className="columns-header__row-container cols-1-to-4">
-                    <div className="columns-header__heading-container col-1">
+                <div className="columns-header__row-container warehouses__cols-1-to-4">
+                    <div className="columns-header__heading-container warehouses__col-1">
                         <p className="columns-header__heading">WAREHOUSE</p>
                         <img src={sortIcon} alt="Sort by" className="columns-header__sort-icon"/>
                     </div>
 
-                    <div className="columns-header__heading-container col-2">
+                    <div className="columns-header__heading-container warehouses__col-2">
                         <p className="columns-header__heading">ADDRESS</p>
                         <img src={sortIcon} alt="Sort by" className="columns-header__sort-icon"/>
                     </div>
 
-                    <div className="columns-header__heading-container col-3">
+                    <div className="columns-header__heading-container warehouses__col-3">
                         <p className="columns-header__heading">CONTACT NAME</p>
                         <img src={sortIcon} alt="Sort by" className="columns-header__sort-icon"/>
                     </div>
 
-                    <div className="columns-header__heading-container col-4">
+                    <div className="columns-header__heading-container warehouses__col-4">
                         <p className="columns-header__heading">CONTACT INFORMATION</p>
                         <img src={sortIcon} alt="Sort by" className="columns-header__sort-icon"/>
                     </div>
                 </div>
 
-                <p className="columns-header__heading col-5 columns-header__heading--last-item">ACTIONS</p>                             
+                <p className="columns-header__heading warehouses__col-5 columns-header__heading--last-item">ACTIONS</p>                             
             </div>
 
             <WarehousesRow />

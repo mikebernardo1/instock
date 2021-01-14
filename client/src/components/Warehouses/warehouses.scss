@@ -3,84 +3,7 @@
 @import '../../styles/_variables';
 
 
-// Column widths defined for: data rows, and data rows sorting header
-.col-1 {
-    width: 47.1%;
 
-    @include tablet {   
-        margin-right: 10px;        
-        width: 24%;
-    }
-
-    @include desktop {          
-        width: 17%;
-    }
-}
-
-.col-2 {
-    width: 47.1%;
-
-    @include tablet {  
-        margin-right: 10px;          
-        width: 18%;
-    }
-
-    @include desktop {  
-        margin-right: 40px;           
-        width: 25%;
-    }
-}
-
-.col-3 {
-    width: 47.1%;
-
-    @include tablet {    
-        margin-right: 10px;        
-        width: 20%;
-    }
-
-    @include desktop {    
-        margin-right: 30px;        
-        width: 20%;
-    }
-}
-
-.col-4 {
-    width: 47.1%;
-
-    @include tablet {           
-        width: 32%;
-    }
-
-    @include desktop {           
-        margin-right: 10px;
-        width: 30%;
-    }
-}
-
-.cols-1-to-4 {
-    @include tablet {
-        width: 91%;
-    }
-
-    @include desktop {
-        width: 94%;
-    }
-}
-
-.col-5 {
-    width: 100%;
-    
-    @include tablet {           
-        // Width of col-5 is 100 minus width of cols-1-to-4
-        width: 9%;
-    }
-
-    @include desktop {  
-        // Width of col-5 is 100 minus width of cols-1-to-4         
-        width: 6%;
-    }
-}
 
 
 .warehouses {
@@ -98,6 +21,85 @@
     @include desktop {
         margin: 0 9.286vw 0;
     }
+
+// Column widths defined for: data rows, and data rows sorting header
+&__col-1 {
+    width: 47.1%;
+
+    @include tablet {   
+        margin-right: 10px;        
+        width: 24%;
+    }
+
+    @include desktop {          
+        width: 17%;
+    }
+}
+
+&__col-2 {
+    width: 47.1%;
+
+    @include tablet {  
+        margin-right: 10px;          
+        width: 18%;
+    }
+
+    @include desktop {  
+        margin-right: 40px;           
+        width: 25%;
+    }
+}
+
+&__col-3 {
+    width: 47.1%;
+
+    @include tablet {    
+        margin-right: 10px;        
+        width: 20%;
+    }
+
+    @include desktop {    
+        margin-right: 30px;        
+        width: 20%;
+    }
+}
+
+&__col-4 {
+    width: 47.1%;
+
+    @include tablet {           
+        width: 32%;
+    }
+
+    @include desktop {           
+        margin-right: 10px;
+        width: 30%;
+    }
+}
+
+&__cols-1-to-4 {
+    @include tablet {
+        width: 91%;
+    }
+
+    @include desktop {
+        width: 94%;
+    }
+}
+
+&__col-5 {
+    width: 100%;
+    
+    @include tablet {           
+        // Width of col-5 is 100 minus width of cols-1-to-4
+        width: 9%;
+    }
+
+    @include desktop {  
+        // Width of col-5 is 100 minus width of cols-1-to-4         
+        width: 6%;
+    }
+}    
 
     &__header {
         border-bottom: 1px solid $outlines-fill;
