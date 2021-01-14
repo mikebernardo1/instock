@@ -1,10 +1,10 @@
 import React from 'react';
-// import InventoryItem from '../InventoryItem/InventoryItem';
+import InventoryItemDetails from '../InventoryItemDetails/InventoryItemDetails';
 
 export default function Inventory() {
     return (
         <div>
-            {/* <InventoryItem /> */}
+            <InventoryItemDetails />
         </div>
     )
 }

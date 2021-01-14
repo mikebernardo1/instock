@@ -1,0 +1,166 @@
+@import "../../styles/mixins";
+@import "../../styles/partials";
+@import "../../styles/variables";
+
+.item {
+	position: relative;
+	top: -52px;
+	@include tablet {
+		top: -95px;
+	}
+	&__block {
+		width: 90vw;
+		margin: auto;
+		background-color: $white;
+		min-height: 365px;
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+		border-radius: 3px;
+		@include tablet {
+			min-height: 292px;
+			flex-direction: row;
+			width: 91.5vw;
+		}
+		@include desktop {
+			width: 80vw;
+		}
+		&-header {
+			@include flex(row, flex-start, center);
+			padding: 32px 24px 24px 24px;
+			border-bottom: 1px solid $outlines-fill;
+			&-back {
+			}
+			&-title {
+				font-family: $titillum-reg;
+				font-size: 2.8rem;
+				flex-grow: 1;
+				padding: 0 12px;
+				@include tablet {
+					font-size: 3.2rem;
+				}
+			}
+			&-edit {
+				background-color: $interactive-elements-fill;
+				width: 37px;
+				height: 37px;
+				vertical-align: baseline;
+				border-radius: 50%;
+				position: relative;
+				@include tablet {
+					width: 82px;
+					height: 38px;
+					border-radius: 20px;
+				}
+				&-svg {
+					position: absolute;
+					top: 6px;
+					left: 7px;
+					@include tablet {
+						top: 7px;
+						left: 11px;
+					}
+				}
+				&-svg > path {
+					fill: $white;
+				}
+				&-text {
+					display: none;
+					@include tablet {
+						display: inline-block;
+						position: relative;
+						top: 7px;
+						left: 40px;
+						color: $text-color-nav-active;
+						font-family: $titillium-semibold;
+						font-size: 1.4rem;
+						line-height: 2.2rem;
+					}
+				}
+			}
+		}
+		&-main {
+			padding: 16px 24px 16px 24px;
+			@include tablet {
+				@include flex;
+				padding: 24px 32px 24px 32px;
+				min-height: 198px;
+			}
+			&-desc {
+				@include tablet {
+					@include flex(column, flex-start, flex-start);
+					border-right: 1px solid $outlines-fill;
+					width: 50%;
+				}
+				&-top {
+					&-title {
+						font-family: $titillum-reg;
+						padding: 0 0 4px 0;
+						font-size: 1.2rem;
+						line-height: 1.6rem;
+						text-transform: uppercase;
+						color: $table-column-header;
+					}
+					&-detail {
+						font-family: $titillum-reg;
+						color: $primary-text-color;
+						font-size: 1.3rem;
+						line-height: 2rem;
+						@include tablet {
+							font-size: 1.4rem;
+						}
+						&--para {
+							@include tablet {
+								width: 85%;
+								padding-bottom: 32px;
+							}
+						}
+					}
+				}
+				&-type {
+					&-title {
+						@extend .item__block-main-desc-top-title;
+						padding: 16px 0 4px 0;
+						@include tablet {
+							padding: 0 0 4px 0;
+						}
+					}
+					&-text {
+						@extend .item__block-main-desc-top-detail;
+					}
+				}
+			}
+			&-info {
+				@include flex;
+				flex-wrap: wrap;
+				@include tablet {
+					width: 50%;
+					padding-left: 40px;
+				}
+				&-block {
+					width: 50%;
+					&-title {
+						@extend .item__block-main-desc-type-title;
+					}
+					&-text {
+						@extend .item__block-main-desc-type-text;
+						&--stock {
+							padding: 4px 8px;
+							display: inline-block;
+							border-radius: 20px;
+							font-size: 1.1rem;
+							text-transform: uppercase;
+							background-color: $stock-status-background;
+							color: $out-of-stock-label;
+							font-family: $titillium-semibold;
+							@include tablet {
+								font-size: 1.2rem;
+							}
+							&-in {
+								color: $in-stock-label;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
