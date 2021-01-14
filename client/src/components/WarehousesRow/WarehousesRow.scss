@@ -1,0 +1,115 @@
+@import '../../styles/_mixins';
+@import '../../styles/_partials';
+@import '../../styles/_variables';
+
+
+.data-row {
+    border-bottom: 1px solid $outlines-fill;
+    height: 197px;
+    padding: 16px 7.500vw 25px;
+    width: 100%;
+
+    @include tablet {
+        height: 100px;
+        padding: 0 4.167vw 0;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @include desktop {
+        padding: 0 2.857vw 0;
+    }
+
+    &__data-container {
+        height: 135px;
+        width: 100%;
+
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+
+        @include tablet {
+            height: unset;
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__text-container {
+        margin-bottom: 16px;
+
+        @include tablet {
+            margin-bottom: 0;
+        }
+    }
+
+    // Data label for mobile - I.e. "CONTACT NAME". Displays: None on tablet, desktop
+    &__text-label {
+        color: $table-column-header;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 16px;
+        margin-bottom: 5px;
+
+        &--warehouse-label {
+            margin-bottom: 0;
+        }
+
+        @include tablet {
+            display: none;
+            margin-bottom: 0;
+        }
+    }
+
+    &__text-data {
+        color: $primary-text-color; 
+        font-size: 1.1rem;
+        line-height: 17px;
+
+        &--warehouse-link {
+            color: $link-text;
+            display: inline;
+            font-weight: 600;
+        }
+
+        @include tablet {
+            font-size: 1.4rem;
+            line-height: 22px;
+        }
+    }
+
+    &__right-arrow-icon {
+        height: 20px;
+        position: relative;
+        top: 7px;
+        width: auto;
+
+        @include tablet {
+            top: 6px;
+        }
+    }
+
+    &__actions-icons-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        @include tablet {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__action-icon {
+        height: 23px;
+        width: auto;
+    }
+}
