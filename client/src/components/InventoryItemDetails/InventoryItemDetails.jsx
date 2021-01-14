@@ -1,21 +1,50 @@
-import React, { Component } from 'react'
-import './InventoryItemDetails.scss'
-// import BackArrow from '../../assets/icons/arrow_back-24px.svg';
-// import EditPencil from '../../assets/icons/edit-24px.svg';
+import React, { Component } from 'react';
+import Axios from 'axios';
+import './InventoryItemDetails.scss';
 
 
 export class InventoryItemDetails extends Component {
 
+  apiURL = 'http://localhost:8080/inventory/'
+
   state = {
-    item: 'Television',
-    description: 'This 50", 4K LED TV provides a crystal-clear picture and vivid colors.',
-    category: 'Electronics',
-    status: true,
-    quantity: 500,
-    warehouse: 'Manhattan'
+    item: '',
+    description: '',
+    category: '',
+    status: '',
+    quantity: '',
+    warehouse: ''
+  }
+
+  componentDidMount() {
+    let requestedItem = this.props.match.params.id;
+    this.apiFetchCall(requestedItem);
+  }
+
+  apiFetchCall = (productID) => {
+    Axios
+      .get(`${this.apiURL}${productID}`)
+      .then((res) => {
+        this.setState({
+          item: res.data.itemName,
+          description: res.data.description,
+          category: res.data.category,
+          status: res.data.status,
+          quantity: res.data.quantity,
+          warehouse: res.data.warehouseName
+        })
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
+    // Function to toggle class for stock status
+    // inorder to apply custom styling depending on the stock status
+    const stockStatus =
+      (this.state.status === 'Out of Stock')
+      ? "item__block-main-info-block-text item__block-main-info-block-text--stock"
+      : "item__block-main-info-block-text item__block-main-info-block-text--stock item__block-main-info-block-text--stock-in";
+    
     return (
       <article className="item">
         <div className="item__block">
@@ -59,11 +88,7 @@ export class InventoryItemDetails extends Component {
             <div className="item__block-main-info">
               <div className="item__block-main-info-block">
                 <h3 className="item__block-main-info-block-title">Status:</h3>
-                <div
-                  // Class to be toggled for 'in -stock' items
-                  className="item__block-main-info-block-text
-                            item__block-main-info-block-text--stock
-                            item__block-main-info-block-text--stock-in">In Stock</div>
+                <div className={stockStatus}>{this.state.status}</div>
               </div>
               <div className="item__block-main-info-block">
                 <h3 className="item__block-main-info-block-title">Quantity:</h3>
