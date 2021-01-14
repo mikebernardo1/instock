@@ -27,6 +27,12 @@
 			@include flex(row, flex-start, center);
 			padding: 32px 24px 24px 24px;
 			border-bottom: 1px solid $outlines-fill;
+			@include tablet {
+				padding: 32px 36px 24px 36px;
+			}
+			@include desktop {
+				padding: 32px 44px 24px 44px;
+			}
 			&-back {
 			}
 			&-title {
@@ -84,11 +90,15 @@
 				padding: 24px 32px 24px 32px;
 				min-height: 198px;
 			}
+			@include desktop {
+				padding: 24px 44px 24px 44px;
+			}
 			&-desc {
 				@include tablet {
 					@include flex(column, flex-start, flex-start);
 					border-right: 1px solid $outlines-fill;
 					width: 50%;
+					padding-right: 40px;
 				}
 				&-top {
 					&-title {
@@ -109,7 +119,6 @@
 						}
 						&--para {
 							@include tablet {
-								width: 85%;
 								padding-bottom: 32px;
 							}
 						}
