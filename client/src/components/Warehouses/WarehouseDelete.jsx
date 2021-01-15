@@ -6,7 +6,9 @@ export default function WarehouseDelete() {
     return (
         <div className="warehouseDelete">
             <div className="warehouseDelete__div1">
-                <img src ={close} className="warehouseDelete__div1-close" alt="close button"></img>
+                <div className="warehouseDelete__div1-close">
+                    <img src ={close} className="warehouseDelete__div1-close-image" alt="close button"></img>
+                </div>
                 <div className="warehouseDelete__div1-block">
                     <h1 className="warehouseDelete__div1-block-title">Delete King West warehouse?</h1>
                     <p className="warehouseDelete__div1-block-text">Please confirm that you’d like to delete the King West from the list of warehouses. You won’t be able to undo this action.</p>
