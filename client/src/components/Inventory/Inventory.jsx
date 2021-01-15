@@ -1,8 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-export default function Inventory() {
-    return (
-        <div>
-        </div>
-    )
+function Inventory() {
+  return (
+    <div>
+      
+    </div>
+  )
 }
+
+export default Inventory
