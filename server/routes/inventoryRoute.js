@@ -9,16 +9,16 @@ router
     });
 
 router
-.get('/:warehouseID', (req, res) => {
-    let warehouseID = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
-    return res.send(warehouseID);
-    });
+.get('/:id', (req, res) => {
+    let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
+    return res.send(inventoryID);
+    })
 
 // .post goes here
 
 router
 .get('/:id', (req, res) => {
-    let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
+    let inventoryID = inventories.filter((inventory)=> inventory.id == req.params.id);
     return res.send(inventoryID);
     })
 
