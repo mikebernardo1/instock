@@ -8,12 +8,6 @@ router
     return res.send(inventories);
     });
 
-router
-.get('/:warehouseID', (req, res) => {
-    let warehouseID = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
-    return res.send(warehouseID);
-    });
-
 // .post goes here
 
 router
