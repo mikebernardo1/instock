@@ -1,5 +1,4 @@
-import React from 'react'
-import InventoryDelete from './InventoryDelete'
+import React from 'react';
 
 export default function Inventory() {
     return (
