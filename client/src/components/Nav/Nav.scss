@@ -5,6 +5,7 @@
 .nav {
 	background-color: $top-nav-background;
 	height: 200px;
+	position: relative;
 	@include tablet {
 		height: 186px;
 	}
