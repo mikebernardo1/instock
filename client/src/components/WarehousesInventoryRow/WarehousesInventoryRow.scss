@@ -5,13 +5,74 @@
 .wi-item {
 	padding: 16px 24px 24px 24px;
 	border-top: 1px solid $outlines-fill;
+	&:hover {
+		background-color: $data-list-background-hover;
+	}
+	@include tablet {
+		padding: 18px 32px 18px 32px;
+	}
 	&__block {
+		@include tablet {
+			@include flex(row, space-between, center);
+		}
 		&-info {
 			@include flex(row, flex-end, stretch);
 			flex-wrap: wrap;
+			@include tablet {
+				@include flex(row, space-between, center);
+				flex-grow: 1;
+			}
 			&-piece {
 				width: 50%;
 				padding: 0 0 20px 0;
+				@include tablet {
+					width: auto;
+					padding: 0;
+				}
+				&--item {
+					@include tablet {
+						order: 1;
+						position: relative;
+						top: -4px;
+						width: 120px;
+					}
+					@include desktop {
+						width: 140px;
+					}
+				}
+				&--status {
+					@include tablet {
+						order: 3;
+						width: 92px;
+					}
+					@include desktop {
+						width: 110px;
+					}
+				}
+				&--qty {
+					@include tablet {
+						order: 4;
+						width: 42px;
+					}
+				}
+				&--category {
+					@include tablet {
+						order: 2;
+						width: 100px;
+					}
+					@include desktop {
+						width: 120px;
+					}
+				}
+				&--warehouse {
+					@include tablet {
+						order: 5;
+						width: 100px;
+					}
+					@include desktop {
+						width: 120px;
+					}
+				}
 				&-title {
 					font-family: $titillum-reg;
 					padding: 0 0 4px 0;
@@ -19,6 +80,9 @@
 					line-height: 1.6rem;
 					text-transform: uppercase;
 					color: $table-column-header;
+					@include tablet {
+						display: none;
+					}
 				}
 				&-value {
 					font-family: $titillum-reg;
@@ -49,6 +113,10 @@
 					background: none;
 					border: none;
 					cursor: pointer;
+					&--item {
+						@include tablet {
+						}
+					}
 					&-text {
 						@extend .wi-item__block-info-piece-value;
 						display: inline-block;
@@ -66,11 +134,15 @@
 		}
 		&-actions {
 			@include flex(row, space-between, center);
+			@include desktop {
+				padding-left: 40px;
+			}
 			&-button {
 				border: none;
 				cursor: pointer;
 				background: none;
-				&-icon {
+				@include tablet {
+					padding-left: 16px;
 				}
 			}
 		}

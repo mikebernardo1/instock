@@ -37,6 +37,26 @@ class WarehouseInventory extends Component {
   }
 
   render() {
+    let item1 = {
+      "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
+      "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+      "warehouseName": "Manhattan",
+      "itemName": "Television",
+      "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
+      "category": "Electronics",
+      "status": "In Stock",
+      "quantity": 500
+    }
+    let item2 = {
+      "id": "4dd464d6-90b8-4330-91e0-bd1217811bd9",
+      "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+      "warehouseName": "Wonderland",
+      "itemName": "Tent",
+      "description": "Perfect for spring or summer camping, this 1-person tent is easy to pack and has the option to become modular when used with other products.",
+      "category": "Gear",
+      "status": "Out of Stock",
+      "quantity": 800
+    }
     return (
       <section className="inventory">
 
@@ -55,8 +75,8 @@ class WarehouseInventory extends Component {
             </Link>
         </div>
 
-        <WarehousesInventoryRow />
-        <WarehousesInventoryRow />
+        <WarehousesInventoryRow item={item1}/>
+        <WarehousesInventoryRow item={item2}/>
       </section>
     )
   }
