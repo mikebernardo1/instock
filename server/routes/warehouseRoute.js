@@ -1,9 +1,10 @@
-const { request } = require('express');
 const express = require('express')
 const router = express.Router()
-const warehouses = require('../warehouses.json');
-const inventories = require('../inventories.json');
+let warehouses = require('../warehouses.json');
+let inventories = require('../inventories.json');
 const app = express();
+const fs = require('fs');
+let inventory = inventories;
 
 router
 .get('/', (req, res) => {
@@ -19,18 +20,29 @@ router
     })
 
 .delete('/:id', (req, res) => {
-    for (let i = j = 0; i < warehouses.length  && j < inventories.length; i++, j++)
-    
+    for (let i = 0; i < warehouses.length; i++)
+    // for (let i = 0; i < warehouses.length; i++)
     {
     let currentWarehouse = warehouses[i];
-    let warehouseInventory = inventories[j];
+    let newInventory = inventory.filter((inventory)=> inventory.warehouseID !== req.params.id)
+    let newWarehouse = warehouses.filter((warehouse)=> warehouse.id !== req.params.id)
 
-        if ((currentWarehouse.id == req.params.id) && (warehouseInventory.warehouseID == currentWarehouse.id)){
-        warehouses.splice(i, 1) && inventories.splice(j,1);
+        if ((currentWarehouse.id == req.params.id))
+        // if (currentWarehouse.id == req.params.id)
+        {
+        // let newWarehouse = warehouses.splice(i, 1)
 
-        return res.send(req.params.id + ' ' + 'is deleted');
+        // warehouses.splice(i, 1);
+        fs.writeFile('warehouses.json', JSON.stringify(newWarehouse), (err) => {if (err){
+            console.log(err)
+        }})
+        fs.writeFile('inventories.json', JSON.stringify(newInventory), (err) => {if (err){
+            console.log(err)
+        }} )
+        return res.send(req.params.id + ' ' + 'is deleted')
         }
     }
-});
+}
+);
 
 module.exports = router;

@@ -8,6 +8,12 @@ router
     return res.send(inventories);
     });
 
+router
+.get('/:warehouseID', (req, res) => {
+    let warehouseID = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
+    return res.send(warehouseID);
+    });
+
 // .post goes here
 
 router
@@ -17,8 +23,15 @@ router
     })
 
 .delete('/:id', (req, res) => {
-    let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
-    return res.send('This test delete worked')
+    for (let i = 0; i < inventories.length; i++){
+    let currentInventory = inventories[i];
+
+        if (currentInventory.id == req.params.id){
+        inventories.splice(i, 1);
+
+        return res.send(req.params.id + ' ' + 'is deleted')
+        }
+    }
 });
 
 module.exports = router;
