@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 let warehouses = require('../warehouses.json');
 let inventories = require('../inventories.json');
-const app = express();
 const fs = require('fs');
 let inventory = inventories;
 
@@ -21,18 +20,17 @@ router
 
 .delete('/:id', (req, res) => {
     for (let i = 0; i < warehouses.length; i++)
-    // for (let i = 0; i < warehouses.length; i++)
     {
     let currentWarehouse = warehouses[i];
+
+    // Use filter to match id to params.id
     let newInventory = inventory.filter((inventory)=> inventory.warehouseID !== req.params.id)
     let newWarehouse = warehouses.filter((warehouse)=> warehouse.id !== req.params.id)
 
         if ((currentWarehouse.id == req.params.id))
-        // if (currentWarehouse.id == req.params.id)
         {
-        // let newWarehouse = warehouses.splice(i, 1)
-
-        // warehouses.splice(i, 1);
+        
+        // Use fs.writeFile to permanently delete when called upon
         fs.writeFile('warehouses.json', JSON.stringify(newWarehouse), (err) => {if (err){
             console.log(err)
         }})

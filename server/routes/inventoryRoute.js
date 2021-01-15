@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const inventories = require('../inventories.json');
-const app = express();
 
 router
 .get('/', (req, res) => {
