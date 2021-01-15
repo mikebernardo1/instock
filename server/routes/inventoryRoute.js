@@ -8,17 +8,11 @@ router
     return res.send(inventories);
     });
 
-router
-.get('/:id', (req, res) => {
-    let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
-    return res.send(inventoryID);
-    })
-
 // .post goes here
 
 router
 .get('/:id', (req, res) => {
-    let inventoryID = inventories.filter((inventory)=> inventory.id == req.params.id);
+    let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
     return res.send(inventoryID);
     })
 
