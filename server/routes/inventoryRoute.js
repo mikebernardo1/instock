@@ -1,16 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const inventories = require('../inventories.json');
+const fs = require('fs');
 
 router
 .get('/', (req, res) => {
     return res.send(inventories);
-    });
-
-router
-.get('/:warehouseID', (req, res) => {
-    let warehouseID = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
-    return res.send(warehouseID);
     });
 
 // .post goes here
@@ -25,8 +20,13 @@ router
     for (let i = 0; i < inventories.length; i++){
     let currentInventory = inventories[i];
 
+    let newInventory = inventories.filter((inventory)=> inventory.id !== req.params.id)
+
         if (currentInventory.id == req.params.id){
-        inventories.splice(i, 1);
+
+        fs.writeFile('inventories.json', JSON.stringify(newInventory), (err) => {if (err){
+            console.log(err)
+        }})
 
         return res.send(req.params.id + ' ' + 'is deleted')
         }

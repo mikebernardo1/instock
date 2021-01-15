@@ -10,14 +10,15 @@ import textShortener from '../../utilities/textShortener';
 import './WarehousesRow.scss';
 
 
-export default function WarehousesRow() {
+export default function WarehousesRow(props) {
 
     // Runs data through text shortener function
-    let warehouseName = textShortener("Santa Monica", 18, 1440);
-    let addressText = textShortener("890 Brannan Street, San Francisco, USA", 42, 1440);
-    let contactName = textShortener("Brad McDonald", 20, 1440);
-    let phoneNumber = textShortener("1-555-8950-5555", 17, 1440);
-    let emailAddress = textShortener("bmcdonald@instock.com", 23, 1440);
+    // It only shortens a string if over a certain length
+    let warehouseName = textShortener(props.data.name, 18, 1440);
+    let addressText = textShortener(props.data.address, 42, 1440);
+    let contactNameShortened = textShortener(props.data.contact.name, 20, 1440);
+    let phoneNumber = textShortener(props.data.contact.phone, 17, 1440);
+    let emailAddress = textShortener(props.data.contact.email, 23, 1440);
 
     return (
 
@@ -39,7 +40,7 @@ export default function WarehousesRow() {
 
                 <div className="data-row__text-container warehouses__col-3">
                     <p className="data-row__text-label">CONTACT NAME</p>
-                    <p className="data-row__text-data">{contactName}</p>
+                    <p className="data-row__text-data">{contactNameShortened}</p>
                 </div>
 
                 <div className="data-row__text-container warehouses__col-4">
