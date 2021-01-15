@@ -11,7 +11,7 @@ router
 
 router
 .get('/:warehouseID', (req, res) => {
-    let warehouseInventory = inventories.find((inventory)=> inventory.warehouseID == req.params.id);
+    let warehouseInventory = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
     return res.send(warehouseInventory);
     })
 
