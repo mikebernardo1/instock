@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const inventories = require('../inventories.json');
+const fs = require('fs');
 
 router
 .get('/', (req, res) => {
@@ -25,8 +26,13 @@ router
     for (let i = 0; i < inventories.length; i++){
     let currentInventory = inventories[i];
 
+    let newInventory = inventories.filter((inventory)=> inventory.id !== req.params.id)
+
         if (currentInventory.id == req.params.id){
-        inventories.splice(i, 1);
+
+        fs.writeFile('inventories.json', JSON.stringify(newInventory), (err) => {if (err){
+            console.log(err)
+        }})
 
         return res.send(req.params.id + ' ' + 'is deleted')
         }
