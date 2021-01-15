@@ -29,14 +29,14 @@ router
 
         if ((currentWarehouse.id == req.params.id))
         {
-        
+
         // Use fs.writeFile to permanently delete when called upon
         fs.writeFile('warehouses.json', JSON.stringify(newWarehouse), (err) => {if (err){
             console.log(err)
         }})
         fs.writeFile('inventories.json', JSON.stringify(newInventory), (err) => {if (err){
             console.log(err)
-        }} )
+        }})
         return res.send(req.params.id + ' ' + 'is deleted')
         }
     }
