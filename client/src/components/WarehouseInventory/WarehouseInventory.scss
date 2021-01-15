@@ -1,0 +1,218 @@
+@import "../../styles/_mixins";
+@import "../../styles/_partials";
+@import "../../styles/_variables";
+
+.inventory {
+	background-color: $data-list-background;
+	border-radius: 3px;
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+	margin: 0 5vw 0;
+	position: relative;
+	top: -52px;
+	@include tablet {
+		top: -92px;
+		margin: 0 4.167vw 0;
+	}
+
+	@include desktop {
+		margin: 0 9.286vw 0;
+	}
+
+	// Column widths defined for: data rows, and data rows sorting header
+	// &__col-1 {
+	// 	width: 47.1%;
+
+	// 	@include tablet {
+	// 		margin-right: 10px;
+	// 		width: 24%;
+	// 	}
+
+	// 	@include desktop {
+	// 		width: 17%;
+	// 	}
+	// }
+
+	// &__col-2 {
+	// 	width: 47.1%;
+
+	// 	@include tablet {
+	// 		margin-right: 10px;
+	// 		width: 18%;
+	// 	}
+
+	// 	@include desktop {
+	// 		margin-right: 40px;
+	// 		width: 25%;
+	// 	}
+	// }
+
+	// &__col-3 {
+	// 	width: 47.1%;
+
+	// 	@include tablet {
+	// 		margin-right: 10px;
+	// 		width: 20%;
+	// 	}
+
+	// 	@include desktop {
+	// 		margin-right: 30px;
+	// 		width: 20%;
+	// 	}
+	// }
+
+	// &__col-4 {
+	// 	width: 47.1%;
+
+	// 	@include tablet {
+	// 		width: 32%;
+	// 	}
+
+	// 	@include desktop {
+	// 		margin-right: 10px;
+	// 		width: 30%;
+	// 	}
+	// }
+
+	// &__cols-1-to-4 {
+	// 	@include tablet {
+	// 		width: 91%;
+	// 	}
+
+	// 	@include desktop {
+	// 		width: 94%;
+	// 	}
+	// }
+
+	// &__cols-1-to-5 {
+	// 	@include tablet {
+	// 		width: 91%;
+	// 	}
+
+	// 	@include desktop {
+	// 		width: 94%;
+	// 	}
+	// }
+
+	// &__col-6 {
+	// 	width: 100%;
+
+	// 	@include tablet {
+	// 		// Width of col-5 is 100 minus width of cols-1-to-4
+	// 		width: 9%;
+	// 	}
+
+	// 	@include desktop {
+	// 		// Width of col-5 is 100 minus width of cols-1-to-4
+	// 		width: 6%;
+	// 	}
+	// }
+
+	&__header {
+		// border-bottom: 1px solid $outlines-fill;
+		padding: 32px 7.5vw 0;
+
+		@include tablet {
+			border-bottom: none;
+			margin-bottom: 5px;
+			padding: 32px 4.167vw 0;
+
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-end;
+		}
+
+		@include desktop {
+			padding: 32px 2.857vw 0;
+		}
+	}
+
+	&__heading {
+		margin-bottom: 16px;
+
+		@include tablet {
+			font-size: 3.2rem;
+			margin-right: auto;
+		}
+	}
+
+	&__add-new-inventory-button {
+		@extend %button-standard;
+		margin-bottom: 24px;
+		width: 100%;
+
+		@include tablet {
+			margin-left: 14px;
+			min-width: 100px;
+		}
+	}
+}
+
+// Search field
+.search {
+	@extend %search;
+	margin-bottom: 16px;
+
+	&__input {
+		@extend %search-input-field;
+		width: 100%;
+
+		@include tablet {
+			width: 185px;
+		}
+
+		@include desktop {
+			width: 274px;
+		}
+	}
+
+	&__icon {
+		@extend %search-input-field-icon;
+	}
+}
+
+// Column header -- Headings with Sort buttons above the data rows
+.columns-header {
+	// Do not display on mobile
+	display: none;
+
+	@include tablet {
+		padding: 0 4.167vw 0;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	@include desktop {
+		padding: 0 2.857vw 0;
+	}
+
+	&__row-container {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__heading {
+		color: $table-column-header;
+		font-weight: 600;
+		display: inline;
+
+		// Last heading on desktop should align right
+		&--last-item {
+			@include desktop {
+				text-align: right;
+			}
+		}
+	}
+
+	&__sort-icon {
+		@include tablet {
+			height: 15px;
+			position: relative;
+			top: 3px; // Slight vertical adjustment
+			width: auto;
+		}
+	}
+}

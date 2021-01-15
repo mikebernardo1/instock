@@ -3,6 +3,7 @@ import Nav from './components/Nav/Nav';
 import Warehouses from './components/Warehouses/Warehouses';
 import Inventory from './components/Inventory/Inventory';
 import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
+import WarehouseInventory from './components/WarehouseInventory/WarehouseInventory';
 import './styles/main.scss';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Route path={["/", "/warehouses"]} exact component={Warehouses}></Route>
             <Route path="/inventory" exact component={Inventory}></Route>
             <Route path="/inventory/:id" component={InventoryItemDetails}></Route>
+            <Route path="/warehouse/:id/inventory" component={WarehouseInventory}></Route>
         </Switch>
       </BrowserRouter>
     </div>
