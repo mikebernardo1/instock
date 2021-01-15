@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import WarehousesRow from '../WarehousesRow/WarehousesRow'
+import WarehousesRow from '../WarehousesRow/WarehousesRow';
+import WarehouseDelete from './WarehouseDelete';
 
 import './warehouses.scss';
 
@@ -38,6 +39,7 @@ export class Warehouses extends Component {
 
         return (
             <section className="warehouses">
+                <WarehouseDelete/>
 
                 {/* Section "Header" including search field, Add New Warehouse button */}
                 <div className="warehouses__header">

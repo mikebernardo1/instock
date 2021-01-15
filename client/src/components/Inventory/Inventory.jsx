@@ -1,10 +1,10 @@
 import React from 'react';
-import InventoryDelete from './InventoryDelete'
+import InventoryAddItem from '../InventoryAddItem/InventoryAddItem';
 
 export default function Inventory() {
     return (
         <div>
-            <InventoryDelete/>
+            <InventoryAddItem/>
         </div>
     )
 }

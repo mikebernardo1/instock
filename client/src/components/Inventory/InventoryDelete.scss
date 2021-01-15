@@ -13,11 +13,14 @@
 
     &__div1{
         padding-top: 24px;
-        display: flex;
-        flex-direction: column;
 
         &-close{
-            align-self: flex-end;
+            display:flex;
+            justify-content:flex-end;
+            &-image{
+                max-width: 20px;
+                max-height: 20px;
+            }
         }
 
         &-block{
