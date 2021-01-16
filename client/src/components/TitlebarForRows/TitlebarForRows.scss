@@ -1,0 +1,84 @@
+@import "../../styles/_mixins";
+@import "../../styles/_partials";
+@import "../../styles/_variables";
+
+.titlebar {
+	display: none;
+	height: 40px;
+	padding: 12px 32px 12px 32px;
+	background-color: $table-column-header-background;
+	@include tablet {
+		display: block;
+	}
+	&__block {
+		@include tablet {
+			@include flex(row, space-between, center);
+		}
+		&-left {
+			@include tablet {
+				@include flex(row, space-between, center);
+				flex-grow: 1;
+			}
+			&-head {
+				@include flex;
+				&--item {
+					order: 1;
+					width: 120px;
+					@include desktop {
+						width: 140px;
+					}
+				}
+				&--category {
+					order: 2;
+					width: 100px;
+					@include desktop {
+						width: 120px;
+					}
+				}
+				&--status {
+					order: 3;
+					width: 92px;
+					@include desktop {
+						width: 110px;
+					}
+				}
+				&--qty {
+					order: 4;
+					width: 42px;
+				}
+				&--warehouse {
+					order: 5;
+					width: 100px;
+					@include desktop {
+						width: 120px;
+					}
+				}
+				&--special-case {
+					display: none;
+				}
+				&-title {
+					font-family: $titillium-semibold;
+					font-size: 1.2rem;
+					line-height: 1.8rem;
+					text-transform: uppercase;
+					color: $table-column-header;
+				}
+				&-sort {
+					padding-left: 4px;
+					&-img {
+						max-width: 18px;
+					}
+				}
+			}
+		}
+		&-right {
+			@extend .titlebar__block-left-head-title;
+			width: 80px;
+			text-align: right;
+			@include desktop {
+				width: 120px;
+				padding-left: 40px;
+			}
+		}
+	}
+}

@@ -12,14 +12,11 @@
 		width: 90vw;
 		margin: auto;
 		background-color: $white;
-		// min-height: 365px;
 		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 		border-radius: 3px;
-		// @include tablet {
-		// 	min-height: 292px;
-		// 	flex-direction: row;
-		// 	width: 91.5vw;
-		// }
+		@include tablet {
+			width: 91.5vw;
+		}
 		@include desktop {
 			width: 80vw;
 		}
@@ -27,12 +24,12 @@
 			@include flex(row, flex-start, center);
 			padding: 32px 24px 24px 24px;
 			border-bottom: 1px solid $outlines-fill;
-			// @include tablet {
-			// 	padding: 32px 36px 24px 36px;
-			// }
-			// @include desktop {
-			// 	padding: 32px 44px 24px 44px;
-			// }
+			@include tablet {
+				padding: 32px 36px 24px 36px;
+			}
+			@include desktop {
+				padding: 32px 44px 24px 44px;
+			}
 			&-back {
 				background: none;
 				border: none;
@@ -43,9 +40,9 @@
 				font-size: 2.8rem;
 				flex-grow: 1;
 				padding: 0 12px;
-				// @include tablet {
-				// 	font-size: 3.2rem;
-				// }
+				@include tablet {
+					font-size: 3.2rem;
+				}
 			}
 			&-edit {
 				background-color: $interactive-elements-fill;
@@ -56,55 +53,58 @@
 				vertical-align: baseline;
 				border-radius: 50%;
 				position: relative;
-				// @include tablet {
-				// 	width: 82px;
-				// 	height: 38px;
-				// 	border-radius: 20px;
-				// }
+				@include tablet {
+					width: 82px;
+					height: 38px;
+					border-radius: 20px;
+				}
 				&-svg {
 					position: absolute;
 					top: 6px;
 					left: 7px;
-					// @include tablet {
-					// 	top: 7px;
-					// 	left: 11px;
-					// }
+					@include tablet {
+						top: 7px;
+						left: 11px;
+					}
 				}
 				&-svg > path {
 					fill: $white;
 				}
 				&-text {
 					display: none;
-					// @include tablet {
-					// 	display: inline-block;
-					// 	position: relative;
-					// 	left: 12px;
-					// 	color: $text-color-nav-active;
-					// 	font-family: $titillium-semibold;
-					// 	font-size: 1.4rem;
-					// 	line-height: 2.2rem;
-					// }
+					@include tablet {
+						display: inline-block;
+						position: relative;
+						left: 12px;
+						color: $text-color-nav-active;
+						font-family: $titillium-semibold;
+						font-size: 1.4rem;
+						line-height: 2.2rem;
+					}
 				}
 			}
 		}
 		&-main {
 			padding: 16px 24px 16px 24px;
-			// @include tablet {
-			// 	@include flex;
-			// 	padding: 24px 32px 24px 32px;
-			// 	min-height: 198px;
-			// }
-			// @include desktop {
-			// 	padding: 24px 44px 24px 44px;
-			// }
+			@include tablet {
+				@include flex(row, space-between, flex-start);
+				padding: 24px 32px 24px 32px;
+			}
+			@include desktop {
+				padding: 24px 44px 24px 44px;
+			}
 			&-address {
 				padding-bottom: 16px;
-				// @include tablet {
-				// 	width: 50%;
-				// 	padding-left: 40px;
-				// }
+				@include tablet {
+					border-right: 1px solid $outlines-fill;
+					width: 33%;
+					padding-bottom: 0;
+				}
 				&-block {
 					width: 50%;
+					@include tablet {
+						width: auto;
+					}
 					&-title {
 						font-family: $titillum-reg;
 						padding: 0 0 4px 0;
@@ -112,6 +112,10 @@
 						line-height: 1.6rem;
 						text-transform: uppercase;
 						color: $table-column-header;
+						@include tablet {
+							font-size: 1.2rem;
+							line-height: 1.8rem;
+						}
 					}
 					&-street {
 						font-family: $titillum-reg;
@@ -119,20 +123,20 @@
 						font-style: normal;
 						font-size: 1.3rem;
 						line-height: 2rem;
-						// @include tablet {
-						// 	font-size: 1.4rem;
-						// }
+						@include tablet {
+							font-size: 1.4rem;
+						}
 					}
 				}
 			}
 			&-contact {
 				@include flex(row, space-between, center);
-				// @include tablet {
-				// 	@include flex(column, flex-start, flex-start);
-				// 	border-right: 1px solid $outlines-fill;
-				// 	width: 50%;
-				// 	padding-right: 40px;
-				// }
+				@include tablet {
+					flex-grow: 1;
+					width: 66%;
+					// @include flex(column, flex-start, flex-start);
+					padding-left: 40px;
+				}
 				&-name {
 					width: 50%;
 					&-title {
@@ -140,13 +144,6 @@
 					}
 					&-detail > p {
 						@extend .warehouse__block-main-address-block-street;
-						// font-family: $titillum-reg;
-						// color: $primary-text-color;
-						// font-size: 1.3rem;
-						// line-height: 2rem;
-						// @include tablet {
-						// 	font-size: 1.4rem;
-						// }
 					}
 				}
 				&-info {
@@ -154,9 +151,6 @@
 					&-title {
 						@extend .warehouse__block-main-contact-name-title;
 						padding: 0 0 4px 0;
-						// @include tablet {
-						// 	padding: 0 0 4px 0;
-						// }
 					}
 					&-details > a {
 						@extend .warehouse__block-main-address-block-street;

@@ -6,12 +6,12 @@ import editIcon from '../../assets/icons/edit-24px.svg';
 import './InventoryRow.scss';
 
 // Needs inventory item object
-// Needs a boolean to show warehouse
+// Needs a boolean to show warehouse tab
 // true = displays warehouse
 // false = hides warehouse
 
 function InventoryRow({inventoryItem, showWarehouse}) {
-  
+
   let item = {
     "id": inventoryItem.id,
     "warehouseID": inventoryItem.warehouseID,

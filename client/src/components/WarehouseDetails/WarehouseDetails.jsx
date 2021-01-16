@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import './WarehouseDetails.scss';
 import InventoryRow from '../InventoryRow/InventoryRow';
+import TitlebarForRows from '../TitlebarForRows/TitlebarForRows';
 
 
 export class WarehouseDetails extends Component {
@@ -129,12 +130,13 @@ export class WarehouseDetails extends Component {
               <div className="warehouse__block-main-contact-info">
                 <h3 className="warehouse__block-main-contact-info-title">Contact Information:</h3>
                 <address className="warehouse__block-main-contact-info-details">
-                  <a href="mailto:jim@rock.com">jim@rock.com</a><br />
-                  <a href="tel:+13115552368">(311) 555-2368</a>
+                  <a href="tel:+13115552368">(311) 555-2368</a><br />
+                  <a href="mailto:jim@rock.com">jim@rock.com</a>
                 </address>
               </div>
             </div>
           </main>
+          <TitlebarForRows showWarehouse={false}/>
           {/* Needs a false for disabling the warehouse column
               from the inventory row component */}
           <div className="inventory-component--warehouse">
