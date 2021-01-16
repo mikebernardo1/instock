@@ -2,9 +2,8 @@
 @import "../../styles/_partials";
 @import "../../styles/_variables";
 
-.wi-item {
+.i-item {
 	padding: 16px 24px 24px 24px;
-	border-top: 1px solid $outlines-fill;
 	&:hover {
 		background-color: $data-list-background-hover;
 	}
@@ -118,7 +117,7 @@
 						}
 					}
 					&-text {
-						@extend .wi-item__block-info-piece-value;
+						@extend .i-item__block-info-piece-value;
 						display: inline-block;
 						color: $link-text;
 						position: relative;
