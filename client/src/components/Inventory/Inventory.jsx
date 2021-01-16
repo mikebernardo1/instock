@@ -6,8 +6,6 @@ import InventoryRow from '../InventoryRow/InventoryRow';
 import { Link } from 'react-router-dom';
 import './Inventory.scss'
 
-
-
 class Inventory extends Component {
 
   apiURL = 'http://localhost:8080/';
