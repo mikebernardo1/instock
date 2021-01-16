@@ -18,9 +18,6 @@
 
         &-close{
             align-self: flex-end;
-            height:16px;
-            width:16px;
-            cursor:pointer;
         }
 
         &-block{
@@ -50,7 +47,6 @@
             height:36px;
             width:49%;
             font-family: $titillum-reg;
-            cursor:pointer;
         }
         &-cancel{
             margin-right: 16px;
