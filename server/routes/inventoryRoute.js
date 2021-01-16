@@ -27,6 +27,15 @@ let upload = {
 
     inventories.push(upload);
 
+    fs.readFile('inventories.json', function (err, data) {
+        let json = JSON.parse(data);
+        json.push(upload);    
+        fs.writeFile("inventories.json", JSON.stringify(json), function(err){
+        if (err);
+        console.log('The "data to append" was appended to file!');
+        });
+    })
+
 return res.status(201).send(upload);});
 
 router
