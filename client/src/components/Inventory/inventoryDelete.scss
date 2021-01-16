@@ -1,0 +1,108 @@
+@import '../../styles/mixins';
+@import '../../styles/partials';
+@import '../../styles/typography';
+@import '../../styles/variables';
+
+.inventoryDelete{
+    padding: 0 16px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    &__div1{
+        padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+
+        &-close{
+            align-self: flex-end;
+            height:16px;
+            width:16px;
+            cursor:pointer;
+        }
+
+        &-block{
+
+            &-title{
+                font-family: $titillium-semibold;
+                font-weight: 600;
+                font-size: 28px;
+                line-height: 36px;
+            }
+            &-text{
+                font-family: $titillum-reg;
+                font-size: 15px;
+                line-height: 26px;
+            }
+
+        }
+    }
+
+    &__div2{
+        width:100%;
+        padding-bottom: 24px;
+        display:flex;
+
+        &-button{
+            border-radius: 20px;
+            height:36px;
+            width:49%;
+            font-family: $titillum-reg;
+            cursor:pointer;
+        }
+        &-cancel{
+            margin-right: 16px;
+            border:1px solid #BDC5D5;
+            background-color: #FFFFFF;
+            color: #5C667E;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 20px;
+        }
+
+        &-delete{
+            margin-left: 16px;
+            border: none;
+            background-color: #C94515;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 20px;
+        }
+    }
+}
+
+@include tablet{
+    .inventoryDelete{
+        position:absolute;
+        left: 6.25%;
+        right: 6.25%;
+        top: 18.07%;
+        bottom: 56.35%;
+        width:672px;
+        height:272px;
+
+        &__div2{
+            display:flex;
+            justify-content: flex-end;
+
+            &-button{
+                height:38px;
+                width:71px;
+            }
+        }
+    }
+}
+
+@include desktop{
+    .inventoryDelete{
+        position: absolute;
+        left: 23.75%;
+        right: 23.75%;
+        top: 20%;
+        bottom: 51.68%;
+    }
+
+}
