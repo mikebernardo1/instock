@@ -1,33 +1,39 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+
 import rightArrowIcon from '../../assets/icons/chevron_right-24px.svg';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
+
+import textShortener from '../../utilities/textShortener';
+
 import './InventoryRow.scss';
 
-// Needs inventory item object
-// Needs a boolean to show warehouse tab
-// true = displays warehouse
-// false = hides warehouse
 
-function InventoryRow({inventoryItem, showWarehouse}) {
+export default function InventoryRow({inventoryItem, deleteHandler, showWarehouse}) {
+
+  const deleteEvent = (event) => {
+    console.log('%c Delete event is passing ID:', "color: red; font-weight: bold;");
+    console.log(event.target.dataset.inventory_id);
+
+    // Passes the ID of that data row to the delete modal popup
+    deleteHandler(event.target.dataset.inventory_id);
+  }
 
   let item = {
     "id": inventoryItem.id,
     "warehouseID": inventoryItem.warehouseID,
-    "warehouseName": inventoryItem.warehouseName,
-    "itemName": inventoryItem.itemName,
-    "description": inventoryItem.description,
-    "category": inventoryItem.category,
+    "warehouseName": textShortener(inventoryItem.warehouseName, 18, 1440),
+    "itemName": textShortener(inventoryItem.itemName, 18, 1440),
+    "description": textShortener(inventoryItem.description, 42, 1440),
+    "category": textShortener(inventoryItem.category, 20, 1440),
     "status": inventoryItem.status,
-    "quantity": inventoryItem.quantity
+    "quantity": textShortener(inventoryItem.quantity, 5, 1440)
   }
 
   let editHandler = () => console.log("Edit button clicked.")
-  let deleteHandler = () => console.log("Delete button clicked.")
 
-
-  let itemUrl = `/inventory/${item.id}`
+  let itemUrl = `/inventory/item/${item.id}`
 
   const stockStatus =
       (item.status === 'Out of Stock')
@@ -40,6 +46,8 @@ function InventoryRow({inventoryItem, showWarehouse}) {
       : "i-item__block-info-piece i-item__block-info-piece--warehouse i-item__block-info-piece--special-case"
   
   return (
+
+
     <section className="i-item">
       <div className="i-item__block">
         <div className="i-item__block-info">
@@ -81,20 +89,12 @@ function InventoryRow({inventoryItem, showWarehouse}) {
           </div>
         </div>
         <div className="i-item__block-actions">
-          <button
-            className="i-item__block-actions-button"
-            onClick={deleteHandler}>
-            <img className="i-item__block-actions-button-icon" src={deleteIcon} alt="Delete"/>
-          </button>
-          <button
-            className="i-item__block-actions-button"
-            onClick={editHandler}>
-            <img className="i-item__block-actions-button-icon" src={editIcon} alt="Edit"/>
-          </button>
+            <img onClick={deleteEvent} data-inventory_id={item.id} className="i-item__block-actions-button" src={deleteIcon} alt="Delete"/>
+            <img onClick={editHandler} data-inventory_id={item.id} className="i-item__block-actions-button" src={editIcon} alt="Edit"/>
         </div>
       </div>
     </section>
+
+
   )
 }
-
-export default InventoryRow

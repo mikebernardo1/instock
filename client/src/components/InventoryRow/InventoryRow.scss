@@ -124,6 +124,10 @@
 						display: inline-block;
 						color: $link-text;
 						position: relative;
+						
+						&:hover {
+							text-decoration: underline;
+						}
 					}
 					&-icon {
 						position: relative;
@@ -139,10 +143,8 @@
 			@include desktop {
 				padding-left: 40px;
 			}
-			&-button {
-				border: none;
-				cursor: pointer;
-				background: none;
+			&-button {		
+				cursor: pointer;		
 				@include tablet {
 					padding-left: 16px;
 				}
