@@ -133,10 +133,16 @@ class Inventory extends Component {
           </div>
         </section>
         <div className="inventory-component">
-          <InventoryRow item={item1}/>
+          <InventoryRow
+            inventoryItem={item1}
+            showWarehouse="true"
+          />
         </div>
         <div className="inventory-component">
-          <InventoryRow item={item2}/>
+          <InventoryRow
+            inventoryItem={item2}
+            showWarehouse="true"
+          />
         </div>
       </section>
     )
