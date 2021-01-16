@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import Axios from 'axios';
-
 import searchIcon from '../../assets/icons/search-24px.svg';
 import sortIcon from '../../assets/icons/sort-24px.svg';
 import InventoryRow from '../InventoryRow/InventoryRow';
