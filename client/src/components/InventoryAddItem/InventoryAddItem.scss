@@ -7,6 +7,8 @@
     top:-55px;
     margin:0 16px;
     background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 
     &__div1{
         padding:32px 24px;
@@ -20,7 +22,8 @@
     }
 
     &__div2{
-        padding: 16px 24px 24px 24px;
+        padding: 0 24px;
+        margin: 16px 0 24px 0;
         border-bottom: solid 1px #BDC5D5;
         &-block{
             padding: 16px 0;
@@ -52,11 +55,17 @@
     }
 
     &__div3{
-        padding: 16px 24px 24px 24px;
+        padding: 0 24px;
+        margin: 16px 0 24px 0;
+
         &-block{
             padding: 16px 0;
             &-buttons{
                 display:flex;
+                flex-direction: column;
+                &--flex{
+                    display:flex;
+                }
                 &-div1{
                     display:flex;
                     align-items: center;
@@ -73,8 +82,66 @@
     &__div4{
         padding: 24px;
         background-color: $page-background;
+        width:100%;
+        display: flex;
         &-button{
+            width:49%;
+            height: 36px;
+            font-family: $titillum-reg;
+            border-radius: 20px;
+            &--white{
+                margin-right: 16px;
+                border:1px solid #BDC5D5;
+                background-color: #FFFFFF;
+                color: #5C667E;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 20px;
+            }
+            &--blue{
+                margin-left: 16px;
+                border: none;
+                background-color: #2E66E5;
+                color: #FFFFFF;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 20px;
+            }
+        }
+        }
+}
 
+@include tablet{
+    .inventoryAddItem{
+        top:-100px;
+        &__mainContent{
+            display:flex;
+            justify-content: space-between;
+        }
+        &__div2{
+            width:100%;
+            border-bottom: 0;
+            border-right: 1px solid #BDC5D5;
+        }
+        &__div3{
+            width:100%;
+        }
+        &__div4{
+            display:flex;
+            justify-content: flex-end;
+
+            &-button{
+                height:38px;
+                width:98px;
+            }
         }
     }
+
+}
+
+@include desktop{
+    .inventoryAddItem{
+
+    }
+
 }
