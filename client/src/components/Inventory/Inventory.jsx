@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import Axios from 'axios';
 import searchIcon from '../../assets/icons/search-24px.svg';
-import sortIcon from '../../assets/icons/sort-24px.svg';
 import InventoryRow from '../InventoryRow/InventoryRow';
+import TitlebarForRows from '../TitlebarForRows/TitlebarForRows';
 import { Link } from 'react-router-dom';
 import './Inventory.scss'
 
@@ -60,84 +60,43 @@ class Inventory extends Component {
     }
     return (
       <section className="inventory">
+        <div className="inventory__container">
+          {/* Section "Header" including search field, Add New Warehouse button */}
+          <div className="inventory__header">
+              <h1 className="inventory__heading">Inventory</h1>
 
-        {/* Section "Header" including search field, Add New Warehouse button */}
-        <div className="inventory__header">
-            <h1 className="inventory__heading">Inventory</h1>
-
-            <div className="search">
+              <div className="search">
                 <input type="text" className="search__input" placeholder="Search..." />
                 <img src={searchIcon} alt="Search" className="search__icon"/>     
-            </div>
-
-            {/* Add New Inventory button */}
-            <Link to="/" className="inventory__button-link">
-              <button className="inventory__add-new-inventory-button">+ Add New item</button>
-            </Link>
-        </div>
-        
-        <section className="titlebar">
-          <div className="titlebar__block">
-            <div className="titlebar__block-left">
-              <div className="titlebar__block-left-head titlebar__block-left-head--item">
-                <div className="titlebar__block-left-head-title">Inventory Item</div>
-                <div className="titlebar__block-left-head-sort">
-                  <img
-                    className="titlebar__block-left-head-sort-img"
-                    src={sortIcon} alt="Sort"
-                  />
-                </div>
               </div>
 
-              <div className="titlebar__block-left-head titlebar__block-left-head--status">
-                <div className="titlebar__block-left-head-title">Status</div>
-                <div className="titlebar__block-left-head-sort">
-                  <img
-                    className="titlebar__block-left-head-sort-img"
-                    src={sortIcon} alt="Sort"
-                  />
-                </div>
-              </div>
-
-              <div className="titlebar__block-left-head titlebar__block-left-head--category">
-                <div className="titlebar__block-left-head-title">Category</div>
-                <div className="titlebar__block-left-head-sort">
-                  <img
-                    className="titlebar__block-left-head-sort-img"
-                    src={sortIcon} alt="Sort"
-                  />
-                </div>
-              </div>
-
-              <div className="titlebar__block-left-head titlebar__block-left-head--qty">
-                <div className="titlebar__block-left-head-title">Qty</div>
-                <div className="titlebar__block-left-head-sort">
-                  <img
-                    className="titlebar__block-left-head-sort-img"
-                    src={sortIcon} alt="Sort"
-                  />
-                </div>
-              </div>
-
-              <div className="titlebar__block-left-head titlebar__block-left-head--warehouse">
-                <div className="titlebar__block-left-head-title">Warehouse</div>
-                <div className="titlebar__block-left-head-sort">
-                  <img
-                    className="titlebar__block-left-head-sort-img"
-                    src={sortIcon} alt="Sort"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="titlebar__block-right">Actions</div>
+              {/* Add New Inventory button */}
+              <Link to="/" className="inventory__button-link">
+                <button className="inventory__add-new-inventory-button">+ Add New item</button>
+              </Link>
           </div>
-        </section>
-        <div className="inventory-component">
-          <InventoryRow item={item1}/>
+
+          {/* Needs a true for enabling the warehouse column
+              from the inventory row component */}
+          <TitlebarForRows showWarehouse={true}/>
+
+          {/* Needs a true for enabling the warehouse column
+              from the inventory row component */}
+          <div className="inventory-component">
+            <InventoryRow
+              inventoryItem={item1}
+              showWarehouse={true}
+            />
+          </div>
+          <div className="inventory-component">
+            <InventoryRow
+              inventoryItem={item2}
+              showWarehouse={true}
+            />
+          </div>
         </div>
-        <div className="inventory-component">
-          <InventoryRow item={item2}/>
-        </div>
+
+        
       </section>
     )
   }

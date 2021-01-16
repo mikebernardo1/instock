@@ -72,6 +72,9 @@
 						width: 120px;
 					}
 				}
+				&--special-case {
+					display: none;
+				}
 				&-title {
 					font-family: $titillum-reg;
 					padding: 0 0 4px 0;

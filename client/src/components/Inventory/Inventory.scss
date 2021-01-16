@@ -3,24 +3,34 @@
 @import "../../styles/_variables";
 
 .inventory {
-	background-color: $data-list-background;
-	border-radius: 3px;
-	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-	margin: 0 5vw 0;
+	// border-radius: 3px;
+	// box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+	// margin: 0 5vw 0;
 	position: relative;
 	top: -52px;
 	@include tablet {
 		top: -97px;
 		margin: 0 4.167vw 0;
 	}
-
 	@include desktop {
 		margin: 0 9.286vw 0;
 	}
 
+	&__container {
+		border-radius: 3px;
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+		background-color: $data-list-background;
+		width: 90vw;
+		margin: auto;
+		@include tablet {
+			width: 91.5vw;
+		}
+		@include desktop {
+			width: 80vw;
+		}
+	}
 	&__header {
 		padding: 32px 7.5vw 0;
-
 		@include tablet {
 			border-bottom: none;
 			margin-bottom: 5px;
@@ -77,85 +87,6 @@
 
 	&__icon {
 		@extend %search-input-field-icon;
-	}
-}
-
-// Search bar
-.titlebar {
-	display: none;
-	height: 40px;
-	padding: 12px 32px 12px 32px;
-	background-color: $table-column-header-background;
-	@include tablet {
-		display: block;
-	}
-	&__block {
-		@include tablet {
-			@include flex(row, space-between, center);
-		}
-		&-left {
-			@include tablet {
-				@include flex(row, space-between, center);
-				flex-grow: 1;
-			}
-			&-head {
-				@include flex;
-				&--item {
-					order: 1;
-					width: 120px;
-					@include desktop {
-						width: 140px;
-					}
-				}
-				&--category {
-					order: 2;
-					width: 100px;
-					@include desktop {
-						width: 120px;
-					}
-				}
-				&--status {
-					order: 3;
-					width: 92px;
-					@include desktop {
-						width: 110px;
-					}
-				}
-				&--qty {
-					order: 4;
-					width: 42px;
-				}
-				&--warehouse {
-					order: 5;
-					width: 100px;
-					@include desktop {
-						width: 120px;
-					}
-				}
-				&-title {
-					font-family: $titillium-semibold;
-					font-size: 1.2rem;
-					line-height: 1.8rem;
-					text-transform: uppercase;
-					color: $table-column-header;
-				}
-				&-sort {
-					padding-left: 4px;
-					&-img {
-						max-width: 18px;
-					}
-				}
-			}
-		}
-		&-right {
-			@extend .titlebar__block-left-head-title;
-			width: 80px;
-			text-align: right;
-			@include desktop {
-				width: 120px;
-				padding-left: 40px;
-			}
-		}
 	}
 }
 
