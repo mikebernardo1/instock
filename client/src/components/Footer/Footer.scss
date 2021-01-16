@@ -1,0 +1,14 @@
+@import "../../styles/_mixins";
+@import "../../styles/_partials";
+@import "../../styles/_variables";
+
+.footer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 109px 40px 109px;
+    background-color:  $cta-background;
+    &__text{
+        font-family: $titillum-reg;
+    }
+}
