@@ -4,20 +4,34 @@
 @import '../../styles/variables';
 
 .warehouseDelete{
-    padding: 0 16px;
+    // Styling for tinted background
+    background-color: rgba(19, 24, 44, 0.7);
+    z-index: 999;
+    position: fixed;
+    width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    top: 0;
+    left: 0;
 
+    &__divs-container {
+        background-color: $data-list-background;
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+        border-radius: 0;
+        padding: 0 16px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
     &__div1{
         padding-top: 24px;
 
-        &-close{
+        &-close{         
             display:flex;
             justify-content:flex-end;
             &-image{
+                cursor: pointer;
                 max-width: 20px;
                 max-height: 20px;
             }
@@ -30,6 +44,7 @@
                 font-weight: 600;
                 font-size: 28px;
                 line-height: 36px;
+                margin-bottom: 16px;
             }
             &-text{
                 font-family: $titillum-reg;
@@ -52,6 +67,7 @@
             font-family: $titillum-reg;
         }
         &-cancel{
+            cursor: pointer;
             margin-right: 16px;
             border:1px solid #BDC5D5;
             background-color: #FFFFFF;
@@ -62,6 +78,7 @@
         }
 
         &-delete{
+            cursor: pointer;
             margin-left: 16px;
             border: none;
             background-color: #C94515;
@@ -75,13 +92,22 @@
 
 @include tablet{
     .warehouseDelete{
-        position:absolute;
-        left: 6.25%;
-        right: 6.25%;
-        top: 18.07%;
-        bottom: 56.35%;
-        width:672px;
-        height:272px;
+        &__divs-container {
+            border-radius: 3px;
+            position:absolute;
+
+            // left: 6.25%;
+            // right: 6.25%;
+            // top: 18.07%;
+            // bottom: 56.35%;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width:672px;
+            height:272px;
+        }
 
         &__div2{
             display:flex;
@@ -97,11 +123,13 @@
 
 @include desktop{
     .warehouseDelete{
-        position: absolute;
-        left: 23.75%;
-        right: 23.75%;
-        top: 20%;
-        bottom: 51.68%;
+        &__divs-container {
+            position: absolute;
+            // left: 23.75%;
+            // right: 23.75%;
+            // top: 20%;
+            // bottom: 51.68%;
+        }
     }
 
 }
