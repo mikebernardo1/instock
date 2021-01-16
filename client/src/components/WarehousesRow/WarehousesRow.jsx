@@ -12,6 +12,11 @@ import './WarehousesRow.scss';
 
 export default function WarehousesRow(props) {
 
+    const deleteEvent = (event) => {
+        // Passes the ID of that data row to the delete modal popup
+        props.deleteHandler(event.target.dataset.warehouse_id);
+    }
+
     // Runs data through text shortener function
     // It only shortens a string if over a certain length
     let warehouseName = textShortener(props.data.name, 18, 1440);
@@ -27,7 +32,7 @@ export default function WarehousesRow(props) {
 
                 <div className="data-row__text-container warehouses__col-1">
                     <p className="data-row__text-label data-row__text-label--warehouse-label">WAREHOUSE</p>
-                    <Link to="/">
+                    <Link to={"/" + props.data.id}>
                         <p className="data-row__text-data data-row__text-data--warehouse-link">{warehouseName}</p>
                         <img src={rightArrowIcon} alt="Right arrow icon" className="data-row__right-arrow-icon"/>
                     </Link>
@@ -52,7 +57,7 @@ export default function WarehousesRow(props) {
             
             {/* Action icons container */}
             <div className="data-row__actions-icons-container warehouses__col-5">
-                <img type="button" src={deleteIcon} alt="Delete" className="data-row__action-icon"/>
+                <img onClick={deleteEvent} data-warehouse_id={props.data.id} type="button" src={deleteIcon} alt="Delete" className="data-row__action-icon"/>
                 <img type="button" src={editIcon} alt="Edit" className="data-row__action-icon"/>
             </div>
         </div>
