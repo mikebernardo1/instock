@@ -14,7 +14,7 @@ export default class InventoryAddItem extends React.Component{
             category: e.target.category.value,
             status: e.target.status.value,
             quantity: e.target.quantity.value,
-        };
+        }
     
         axios
         .post('http://localhost:8080/inventory', upload)
@@ -64,7 +64,7 @@ export default class InventoryAddItem extends React.Component{
                             </div>
                             <div className="inventoryAddItem__div3-block">
                                 <h3 className="inventoryAddItem__div3-block-categoryTitle">Quantity</h3>
-                                <input type="text" className="inventoryAddItem__div2-block-textField1 inventoryAddItem__div3-block-textField1" name="quantity"></input>
+                                <input type="number" min='0'className="inventoryAddItem__div2-block-textField1 inventoryAddItem__div3-block-textField1" name="quantity"></input>
                             </div>
                             <div className="inventoryAddItem__div3-block">
                                 <h3 className="inventoryAddItem__div3-block-categoryTitle">Warehouse</h3>
