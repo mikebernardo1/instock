@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import './InventoryAddItem.scss';
+import { Link } from 'react-router-dom';
 import arrowBack from '../../assets/icons/arrow_back-24px.svg';
 
 const apiURL = 'http://localhost:8080/inventory';
@@ -43,7 +44,7 @@ export default class InventoryAddItem extends React.Component{
     return (
         <div className="inventoryAddItem">
             <div className="inventoryAddItem__div1">
-                <img src={arrowBack} alt="arrow back" className="inventoryAddItem__div1-arrow"></img>
+                <Link to="/inventory"><img src={arrowBack} alt="arrow back" className="inventoryAddItem__div1-arrow"></img></Link>
                 <h1 className="inventoryAddItem__div1-title">Add New Inventory Item</h1>
             </div>
             <form className="inventoryAddItem__form" onSubmit={this.submitHandler} name="id" id="form">
