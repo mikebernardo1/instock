@@ -195,8 +195,7 @@ export class Warehouses extends Component {
 
                 {this.state.tableData.filter( data => data.id !== this.state.tableAttributes.justDeleted ).map(data => {
                     return (<WarehousesRow key={data.id} data={data} deleteHandler={this.handleDeleteButton} />)
-                })}                
-    
+                })}            
             </section>
             </>
         )
