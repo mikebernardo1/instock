@@ -34,7 +34,7 @@ export default function WarehousesRow(props) {
 
                 <div className="data-row__text-container warehouses__col-1">
                     <p className="data-row__text-label data-row__text-label--warehouse-label">WAREHOUSE</p>
-                    <Link to={"/" + props.data.id}>
+                    <Link to={"/warehouse/" + props.data.id}>
                         <p className="data-row__text-data data-row__text-data--warehouse-link">{warehouseName}</p>
                         <img src={rightArrowIcon} alt="Right arrow icon" className="data-row__right-arrow-icon"/>
                     </Link>
