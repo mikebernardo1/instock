@@ -1,39 +1,65 @@
-@import 'mixins';
-@import 'partials';
-@import 'typography';
-@import 'variables';
+@import "mixins";
+@import "partials";
+@import "typography";
+@import "variables";
 
 //------------------------------
 // Site-wide styling
 //------------------------------
 
 html {
-    background-color: $page-background;
-    box-sizing: border-box;
-    font-size: 10px;
+	background-color: $page-background;
+	box-sizing: border-box;
+	font-size: 10px;
 }
-  
-*, *:before, *:after {
-    box-sizing: inherit;
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
-  
+
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 img {
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
 }
 
-h1, h2, h3, h4, hr, ul, li, img, p, hr, input, label, form, button {
-    margin: 0;
-    padding: 0;
+h1,
+h2,
+h3,
+h4,
+hr,
+ul,
+li,
+img,
+p,
+hr,
+input,
+label,
+form,
+button {
+	margin: 0;
+	padding: 0;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
+}
+
+select {
+	background: transparent;
+	background-image: url("../assets/icons/arrow_drop_down-24px.svg");
+	background-repeat: no-repeat;
+	background-position-x: 95%;
+	background-position-y: 5px;
+	height: 36px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 //------------------------------
@@ -41,31 +67,31 @@ a {
 //------------------------------
 
 p {
-    font-family: $titillum-reg;
-    font-size: 1.2rem;
-    line-height: 18px;
+	font-family: $titillum-reg;
+	font-size: 1.2rem;
+	line-height: 18px;
 }
 
 h4 {
-    font-family: $titillum-reg;
-    font-size: 1.1rem;
-    line-height: 16px;
+	font-family: $titillum-reg;
+	font-size: 1.1rem;
+	line-height: 16px;
 }
 
 h3 {
-    font-family: $titillium-semibold;
-    font-size: 1.3rem;
-    line-height: 20px;
+	font-family: $titillium-semibold;
+	font-size: 1.3rem;
+	line-height: 20px;
 }
 
 h2 {
-    font-family: $titillium-semibold;
-    font-size: 2.0rem;
-    line-height: 28px;
+	font-family: $titillium-semibold;
+	font-size: 2rem;
+	line-height: 28px;
 }
 
 h1 {
-  font-family: $titillium-semibold;
-  font-size: 2.8rem;
-  line-height: 36px;
+	font-family: $titillium-semibold;
+	font-size: 2.8rem;
+	line-height: 36px;
 }

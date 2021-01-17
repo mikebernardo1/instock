@@ -7,6 +7,8 @@ import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
 import Footer from './components/Footer/Footer';
 import './styles/main.scss';
 
+import InventoryEditItem from './components/InventoryEditItem/InventoryEditItem';
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,9 @@ function App() {
             <Route path="/inventory/:id" component={InventoryItemDetails}></Route>
             <Route path="/warehouse/:id/inventory" component={Inventory}></Route>
             <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
+
+            {/* Test path for edit inventory page */}
+            <Route path="/editTest" component={InventoryEditItem}></Route>
         </Switch>
         <Footer/>
       </BrowserRouter>

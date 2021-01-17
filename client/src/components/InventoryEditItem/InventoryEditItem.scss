@@ -19,6 +19,8 @@
 			max-width: 16px;
 			max-height: 16px;
 			cursor: pointer;
+			position: relative;
+			top: 10px;
 		}
 	}
 
@@ -47,13 +49,17 @@
 				font-family: $titillum-reg;
 				color: $table-column-header;
 				padding: 8px 16px 92px 16px;
+				resize: none;
+				&::-webkit-scrollbar {
+					display: none;
+				}
 			}
 			&-select {
 				border-radius: 20px;
 				border: 1px solid #bdc5d5;
 				font-family: $titillum-reg;
 				color: $table-column-header;
-				padding: 8px 16px;
+				padding: 0 16px;
 				width: 100%;
 			}
 		}
@@ -77,6 +83,11 @@
 					display: flex;
 					align-items: center;
 					margin-right: 89px;
+					&-label {
+						font-family: $titillum-reg;
+						font-size: 1.3rem;
+						color: $placeholder-text;
+					}
 				}
 				&-div2 {
 					display: flex;
@@ -84,6 +95,9 @@
 				}
 				&-radio {
 					margin-right: 8px;
+					&:checked ~ label {
+						color: $primary-text-color;
+					}
 				}
 			}
 		}
@@ -129,13 +143,39 @@
 			display: flex;
 			justify-content: space-between;
 		}
+		&__div1 {
+			&-title {
+				font-size: 3.2rem;
+			}
+		}
 		&__div2 {
 			width: 100%;
 			border-bottom: 0;
 			border-right: 1px solid #bdc5d5;
+			&-header {
+				font-size: 2.4rem;
+			}
+			&-block {
+				padding-top: 32px;
+				padding-bottom: 0;
+				&-categoryTitle {
+					font-size: 1.4rem;
+					padding-bottom: 4px;
+				}
+			}
 		}
 		&__div3 {
 			width: 100%;
+			&-header {
+				font-size: 2.4rem;
+			}
+			&-block {
+				padding-top: 32px;
+				&-categoryTitle {
+					font-size: 1.4rem;
+					padding-bottom: 4px;
+				}
+			}
 		}
 		&__div4 {
 			display: flex;
@@ -151,12 +191,16 @@
 
 @include desktop {
 	.inventoryEditItem {
+		&__mainContent {
+			padding: 0 40px;
+		}
+		&__div2 {
+			padding-right: 40px;
+			padding-left: 0;
+		}
 		&__div3 {
-			&-block {
-				&-textField1 {
-					width: 122px;
-				}
-			}
+			padding-left: 40px;
+			padding-right: 0;
 		}
 	}
 }
