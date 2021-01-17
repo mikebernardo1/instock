@@ -1,0 +1,98 @@
+@import "../../styles/_mixins";
+@import "../../styles/_partials";
+@import "../../styles/_variables";
+
+.inventory {
+	// border-radius: 3px;
+	// box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+	// margin: 0 5vw 0;
+	position: relative;
+	top: -52px;
+	@include tablet {
+		top: -97px;
+		margin: 0 4.167vw 0;
+	}
+	@include desktop {
+		margin: 0 9.286vw 0;
+	}
+
+	&__container {
+		border-radius: 3px;
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+		background-color: $data-list-background;
+		width: 90vw;
+		margin: auto;
+		@include tablet {
+			width: 91.5vw;
+		}
+		@include desktop {
+			width: 80vw;
+		}
+	}
+	&__header {
+		padding: 32px 7.5vw 0;
+		@include tablet {
+			border-bottom: none;
+			margin-bottom: 5px;
+			padding: 32px 4.167vw 0;
+
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-end;
+		}
+
+		@include desktop {
+			padding: 32px 2.857vw 0;
+		}
+	}
+
+	&__heading {
+		margin-bottom: 16px;
+
+		@include tablet {
+			font-size: 3.2rem;
+			margin-right: auto;
+		}
+	}
+
+	&__add-new-inventory-button {
+		@extend %button-standard;
+		margin-bottom: 24px;
+		width: 100%;
+
+		@include tablet {
+			margin-left: 14px;
+			min-width: 100px;
+		}
+	}
+}
+
+// Search field
+.search {
+	@extend %search;
+	margin-bottom: 16px;
+
+	&__input {
+		@extend %search-input-field;
+		width: 100%;
+
+		@include tablet {
+			width: 185px;
+		}
+
+		@include desktop {
+			width: 274px;
+		}
+	}
+
+	&__icon {
+		@extend %search-input-field-icon;
+	}
+}
+
+.inventory-component {
+	border-bottom: 1px solid $outlines-fill;
+	&:last-of-type {
+		border-bottom: none;
+	}
+}

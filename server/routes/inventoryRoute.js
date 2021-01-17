@@ -40,17 +40,18 @@ return res.status(201).send(upload);});
 
 router
 .get('/:warehouseID', (req, res) => {
+	
     let warehouseInventory = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
-    return res.send(warehouseInventory);
+	return res.send(warehouseInventory);
     })
 
 router
-.get('/:id', (req, res) => {
+.get('/item/:id', (req, res) => {
     let inventoryID = inventories.find((inventory)=> inventory.id == req.params.id);
     return res.send(inventoryID);
     })
 
-.delete('/:id', (req, res) => {
+.delete('/item/:id', (req, res) => {
     for (let i = 0; i < inventories.length; i++){
     let currentInventory = inventories[i];
 

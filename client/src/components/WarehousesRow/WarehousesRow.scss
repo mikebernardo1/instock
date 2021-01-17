@@ -9,6 +9,10 @@
     padding: 16px 7.500vw 25px;
     width: 100%;
 
+	&:hover {
+		background-color: $data-list-background-hover;
+	}    
+
     @include tablet {
         height: 100px;
         padding: 0 4.167vw 0;
@@ -68,14 +72,12 @@
     }
 
     &__text-data {
-        color: $primary-text-color; 
         font-size: 1.1rem;
         line-height: 17px;
 
         &--warehouse-link {
-            color: $link-text;
+            @extend %blue-text-link;
             display: inline;
-            font-weight: 600;
         }
 
         @include tablet {
@@ -109,7 +111,13 @@
     }
 
     &__action-icon {
+        cursor: pointer;
         height: 23px;
         width: auto;
+    }
+
+    &__icon-link {
+        width: auto;
+        height: 23px;
     }
 }

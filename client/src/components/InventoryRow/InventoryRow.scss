@@ -1,0 +1,157 @@
+@import "../../styles/_mixins";
+@import "../../styles/_partials";
+@import "../../styles/_variables";
+
+.i-item {
+	padding: 16px 24px 24px 24px;
+	&:hover {
+		background-color: $data-list-background-hover;
+	}
+	@include tablet {
+		padding: 18px 32px 18px 32px;
+	}
+	&__block {
+		@include tablet {
+			@include flex(row, space-between, center);
+		}
+		&-info {
+			@include flex(row, flex-end, stretch);
+			flex-wrap: wrap;
+			@include tablet {
+				@include flex(row, space-between, center);
+				flex-grow: 1;
+			}
+			&-piece {
+				width: 50%;
+				padding: 0 0 20px 0;
+				@include tablet {
+					width: auto;
+					padding: 0;
+				}
+				&--item {
+					@include tablet {
+						order: 1;
+						position: relative;
+						top: -4px;
+						width: 120px;
+					}
+					@include desktop {
+						width: 140px;
+					}
+				}
+				&--status {
+					@include tablet {
+						order: 3;
+						width: 92px;
+					}
+					@include desktop {
+						width: 110px;
+					}
+				}
+				&--qty {
+					@include tablet {
+						order: 4;
+						width: 42px;
+					}
+				}
+				&--category {
+					@include tablet {
+						order: 2;
+						width: 100px;
+					}
+					@include desktop {
+						width: 120px;
+					}
+				}
+				&--warehouse {
+					@include tablet {
+						order: 5;
+						width: 100px;
+					}
+					@include desktop {
+						width: 120px;
+					}
+				}
+				&--special-case {
+					display: none;
+				}
+				&-title {
+					font-family: $titillum-reg;
+					padding: 0 0 4px 0;
+					font-size: 1.1rem;
+					line-height: 1.6rem;
+					text-transform: uppercase;
+					color: $table-column-header;
+					@include tablet {
+						display: none;
+					}
+				}
+				&-value {
+					font-family: $titillum-reg;
+					color: $primary-text-color;
+					font-size: 1.3rem;
+					line-height: 2rem;
+					@include tablet {
+						font-size: 1.4rem;
+					}
+					&--stock {
+						padding: 4px 8px;
+						display: inline-block;
+						border-radius: 20px;
+						font-size: 1.1rem;
+						text-transform: uppercase;
+						background-color: $stock-status-background;
+						color: $out-of-stock-label;
+						font-family: $titillium-semibold;
+						@include tablet {
+							font-size: 1.2rem;
+						}
+						&-in {
+							color: $in-stock-label;
+						}
+					}
+				}
+				&-link {
+					background: none;
+					border: none;
+					cursor: pointer;
+					&--item {
+						@include tablet {
+						}
+					}
+					&-text {
+						@extend .i-item__block-info-piece-value;
+						display: inline-block;
+						color: $link-text;
+						position: relative;
+						
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+					&-icon {
+						position: relative;
+						width: 24px;
+						top: 6px;
+						left: 6px;
+					}
+				}
+			}
+		}
+		&-actions {
+			@include flex(row, space-between, center);
+			@include desktop {
+				padding-left: 40px;
+			}
+			&-link {
+				width: 100%;
+			}
+			&-button {		
+				cursor: pointer;		
+				@include tablet {
+					padding-left: 16px;
+				}
+			}
+		}
+	}
+}
