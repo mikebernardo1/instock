@@ -17,6 +17,8 @@ export default function WarehousesRow(props) {
         props.deleteHandler(event.target.dataset.warehouse_id);
     }
 
+    let editUrl = `/warehouse/${props.data.id}/edit`;
+
     // Runs data through text shortener function
     // It only shortens a string if over a certain length
     let warehouseName = textShortener(props.data.name, 18, 1440);
@@ -58,7 +60,7 @@ export default function WarehousesRow(props) {
             {/* Action icons container */}
             <div className="data-row__actions-icons-container warehouses__col-5">
                 <img onClick={deleteEvent} data-warehouse_id={props.data.id} type="button" src={deleteIcon} alt="Delete" className="data-row__action-icon"/>
-                <img type="button" src={editIcon} alt="Edit" className="data-row__action-icon"/>
+                <Link className="data-row__icon-link" to={editUrl}><img type="button" src={editIcon} alt="Edit" className="data-row__action-icon"/></Link>
             </div>
         </div>
 

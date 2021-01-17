@@ -1,66 +1,154 @@
 import React, { Component } from 'react';
-// import Axios from 'axios';
+import Axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import searchIcon from '../../assets/icons/search-24px.svg';
+import './Inventory.scss'
+
+import InventoryDelete from './InventoryDelete';
 import InventoryRow from '../InventoryRow/InventoryRow';
 import TitlebarForRows from '../TitlebarForRows/TitlebarForRows';
-import { Link } from 'react-router-dom';
-import './Inventory.scss'
+
 
 class Inventory extends Component {
 
   apiURL = 'http://localhost:8080/';
-  requestedWarehouse = this.props.match.params.id;
 
-  componentDidMount() {
-    if(this.requestedWarehouse) {
-      console.log(this.requestedWarehouse)
-      this.apiFetchCall(this.requestedWarehouse);
-    } else {
-      console.log("List all Inventory")
+  state = {
+    tableData: null,
+
+    modalAttributes: {
+        visible: false,
+        data: null
+    },
+
+    tableAttributes: {
+        mainFunctionsEnabled: true,
+        refreshNeeded: false,
+        justDeleted: null
     }
-  }
+};  
 
-  apiFetchCall = (warehouseID) => {
-    // Axios
-      // .get(`${this.apiURL}${warehouseID}`)
-      // .then((res) => {
-        // console.log(res.data)
-        // this.setState({
-          // item: res.data.itemName,
-          // description: res.data.description,
-          // category: res.data.category,
-          // status: res.data.status,
-          // quantity: res.data.quantity,
-          // warehouse: res.data.warehouseName
-        // })
-      // })
-      // .catch((err) => console.log(err));
+componentDidMount() {
+  this.apiFetchCall();
+}
+
+componentDidUpdate() {
+  // If an entry was just deleted, refreshNeeded would be set to true
+  // if so, refresh the table:
+  if (this.state.tableAttributes.refreshNeeded) {
+      this.apiFetchCall();
+      this.setState({
+          tableAttributes: {
+              mainFunctionsEnabled: this.state.tableAttributes.mainFunctionsEnabled,
+              // Turn off refreshNeeded. The other values stay as they are
+              refreshNeeded: false,
+              justDeleted: this.state.tableAttributes.justDeleted
+          }
+      })            
   }
+}    
+
+apiFetchCall = () => {
+  Axios
+      .get(`${this.apiURL}inventory`)
+      .then((res) => {
+          this.setState({
+              tableData: res.data
+          });
+      })
+      .catch((err) => console.log(err));
+}    
+
+// User presses Delete icon, the following runs
+handleDeleteButton = (targetID) => {
+  if (this.state.tableAttributes.mainFunctionsEnabled) {
+      Axios.get(`${this.apiURL}inventory/item/${targetID}`)
+      .then(res => {
+          // Disable buttons while modal is visible
+          this.setState({
+              modalAttributes: {
+                  visible: true,
+                  data: res.data
+              },
+              tableAttributes: {
+                  mainFunctionsEnabled: false,
+                  refreshNeeded: this.state.tableAttributes.refreshNeeded,
+                  justDeleted: this.state.tableAttributes.justDeleted
+              }
+          })              
+     
+      })  
+      .catch(errors => {
+        console.error(errors);
+      })  
+  }
+}
+
+// Cancels a Delete inventory popup
+handleCancel = () => {
+  this.setState({
+      modalAttributes: {
+          visible: false,
+          data: null
+      },
+      tableAttributes: {
+          mainFunctionsEnabled: true,
+          refreshNeeded: this.state.tableAttributes.refreshNeeded,
+          // justDeleted is the most recent warehouse deleted. This is used for filtering it out during the map function on render.
+          justDeleted: null
+      }
+  })            
+}
+
+// Runs when the user selects the Delete button on the popup
+handleAxiosDelete = (targetID) => {
+      Axios.delete(`${this.apiURL}inventory/item/${targetID}`)
+      .then(res => {
+          console.log('Entry deleted.');
+          console.log(res);
+
+          this.setState({
+              tableData: null,
+              modalAttributes: {
+                  visible: false,
+                  data: null
+              },
+              tableAttributes: {
+                  mainFunctionsEnabled: true,
+                  refreshNeeded: true,
+                  justDeleted: targetID
+              }
+          })              
+      })  
+      .catch(errors => {
+        console.error(errors);
+      })  
+}
+
 
   render() {
-    let item1 = {
-      "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
-      "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-      "warehouseName": "Manhattan",
-      "itemName": "Television",
-      "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
-      "category": "Electronics",
-      "status": "In Stock",
-      "quantity": 500
+    document.title = "InStock - Inventory";
+
+    // Returns a blank area until Axios data for the state is loaded
+    if (!this.state.tableData) {
+        return null;
     }
-    let item2 = {
-      "id": "4dd464d6-90b8-4330-91e0-bd1217811bd9",
-      "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-      "warehouseName": "Wonderland",
-      "itemName": "Tent",
-      "description": "Perfect for spring or summer camping, this 1-person tent is easy to pack and has the option to become modular when used with other products.",
-      "category": "Gear",
-      "status": "Out of Stock",
-      "quantity": 800
-    }
+
+    let modalRender = null;
+
+    // Renders delete inventory popup if visible=true
+    if (this.state.modalAttributes.visible) {
+      modalRender = <InventoryDelete data={this.state.modalAttributes.data} cancelHandler={this.handleCancel} axiosDeleteHandler={this.handleAxiosDelete} />;
+    }    
+
     return (
+      <>
+      {modalRender}
+
       <section className="inventory">
         <div className="inventory__container">
+
           {/* Section "Header" including search field, Add New Warehouse button */}
           <div className="inventory__header">
               <h1 className="inventory__heading">Inventory</h1>
@@ -80,24 +168,30 @@ class Inventory extends Component {
               from the inventory row component */}
           <TitlebarForRows showWarehouse={true}/>
 
-          {/* Needs a true for enabling the warehouse column
-              from the inventory row component */}
-          <div className="inventory-component">
-            <InventoryRow
-              inventoryItem={item1}
-              showWarehouse={true}
-            />
-          </div>
-          <div className="inventory-component">
-            <InventoryRow
-              inventoryItem={item2}
-              showWarehouse={true}
-            />
-          </div>
+          {this.state.tableData.filter( data => data.id !== this.state.tableAttributes.justDeleted ).map(data => {
+                    return (
+                      <div key={data.id + "DIV"} className="inventory-component">
+                      {/* Needs a showWarehouse=true for enabling the warehouse column
+                          from the inventory row component */}
+                        <InventoryRow
+                          // inventoryItem={item1}
+                          showWarehouse={true}
+                          key={data.id}
+                          inventoryItem={data}
+                          deleteHandler={this.handleDeleteButton}
+                        />
+                      </div>                      
+                    )
+          })} 
+
+
+
+
         </div>
 
         
       </section>
+      </>
     )
   }
 }

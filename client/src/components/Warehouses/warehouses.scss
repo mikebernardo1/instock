@@ -166,8 +166,10 @@
 
 // Column header -- Headings with Sort buttons above the data rows
 .columns-header {
+    background-color: $table-column-header-background;
     // Do not display on mobile
     display: none;
+    height: 40px;
 
     @include tablet {
         padding: 0 4.167vw 0;
