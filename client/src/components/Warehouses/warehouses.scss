@@ -3,19 +3,18 @@
 @import '../../styles/_variables';
 
 
-
-
-
 .warehouses {
     background-color: $data-list-background;
     border-radius: 3px;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     margin: 0 5vw 0;
+    min-height: 80vh;
     position: relative;
-    top: 136px;
+    top: -52px;
 
-    @include tablet {
+	@include tablet {  
         margin: 0 4.167vw 0;
+        top: -95px;    
     }
     
     @include desktop {
@@ -167,8 +166,10 @@
 
 // Column header -- Headings with Sort buttons above the data rows
 .columns-header {
+    background-color: $table-column-header-background;
     // Do not display on mobile
     display: none;
+    height: 40px;
 
     @include tablet {
         padding: 0 4.167vw 0;
@@ -204,6 +205,7 @@
 
     &__sort-icon {
         @include tablet {
+            cursor: pointer;
             height: 15px;
             position: relative;
             top: 3px; // Slight vertical adjustment

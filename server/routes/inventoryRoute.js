@@ -31,8 +31,9 @@ return res.status(201).send(upload);});
 
 router
 .get('/:warehouseID', (req, res) => {
+	
     let warehouseInventory = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
-    return res.send(warehouseInventory);
+	return res.send(warehouseInventory);
     })
 
 router
