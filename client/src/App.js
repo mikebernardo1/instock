@@ -4,6 +4,7 @@ import Warehouses from './components/Warehouses/Warehouses';
 import Inventory from './components/Inventory/Inventory';
 import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import Footer from './components/Footer/Footer';
 import './styles/main.scss';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/warehouse/:id/inventory" component={Inventory}></Route>
             <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
         </Switch>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
