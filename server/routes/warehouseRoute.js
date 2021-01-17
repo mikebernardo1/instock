@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-let warehouses = require('../warehouses.json');
-let inventories = require('../inventories.json');
+let warehouses = require('../data/warehouses.json');
+let inventories = require('../data/inventories.json');
 const fs = require('fs');
 let inventory = inventories;
 
@@ -31,10 +31,10 @@ router
         {
 
         // Use fs.writeFile to permanently delete when called upon
-        fs.writeFile('warehouses.json', JSON.stringify(newWarehouse), (err) => {if (err){
+        fs.writeFile('/data/warehouses.json', JSON.stringify(newWarehouse), (err) => {if (err){
             console.log(err)
         }})
-        fs.writeFile('inventories.json', JSON.stringify(newInventory), (err) => {if (err){
+        fs.writeFile('/data/inventories.json', JSON.stringify(newInventory), (err) => {if (err){
             console.log(err)
         }})
         return res.send(req.params.id + ' ' + 'is deleted')
