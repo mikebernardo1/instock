@@ -22,7 +22,7 @@ function App() {
             <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
         </Switch>
         <Footer/>
-      </BrowserRouter>w
+      </BrowserRouter>
     </div>
   );
 }
