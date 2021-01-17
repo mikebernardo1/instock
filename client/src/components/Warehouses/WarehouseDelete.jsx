@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Warehouses/warehouseDelete.scss';
+import '../Warehouses/WarehouseDelete.scss';
 import close from '../../assets/icons/close-24px.svg'
 
 export default function WarehouseDelete(props) {

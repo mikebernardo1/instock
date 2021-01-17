@@ -17,7 +17,7 @@ export default function WarehousesRow(props) {
         props.deleteHandler(event.target.dataset.warehouse_id);
     }
 
-    let editUrl = `/warehouse/${props.data.id}/edit`;
+    let editUrl = `/warehouse/edit/${props.data.id}`;
 
     // Runs data through text shortener function
     // It only shortens a string if over a certain length
@@ -34,7 +34,7 @@ export default function WarehousesRow(props) {
 
                 <div className="data-row__text-container warehouses__col-1">
                     <p className="data-row__text-label data-row__text-label--warehouse-label">WAREHOUSE</p>
-                    <Link to={"/" + props.data.id}>
+                    <Link to={"/warehouse/" + props.data.id}>
                         <p className="data-row__text-data data-row__text-data--warehouse-link">{warehouseName}</p>
                         <img src={rightArrowIcon} alt="Right arrow icon" className="data-row__right-arrow-icon"/>
                     </Link>
