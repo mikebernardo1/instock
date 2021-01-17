@@ -18,12 +18,10 @@ function App() {
         <Switch>
             <Route path={["/", "/warehouses"]} exact component={Warehouses}></Route>
             <Route path="/inventory" exact component={Inventory}></Route>
-            <Route path="/inventory/:id" component={InventoryItemDetails}></Route>
+            <Route path="/inventory/:id" exact component={InventoryItemDetails}></Route>
             <Route path="/additem" component={InventoryAddItem}></Route>
+            <Route path="/inventory/edit/:id" component={InventoryEditItem}></Route>
             <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
-
-            {/* Test path for edit inventory page */}
-            <Route path="/editTest" component={InventoryEditItem}></Route>
         </Switch>
         <Footer/>
       </BrowserRouter>

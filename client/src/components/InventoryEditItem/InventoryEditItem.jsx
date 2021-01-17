@@ -5,7 +5,7 @@ import arrowBack from '../../assets/icons/arrow_back-24px.svg';
 
 class InventoryEditItem extends React.Component{
 
-  itemToEdit = "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3"
+  itemToEdit = this.props.match.params.id
 
   state = {
     id: "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
@@ -84,7 +84,7 @@ class InventoryEditItem extends React.Component{
   }
 
   render(){
-    console.log(this.itemStock)
+    console.log(this.itemToEdit)
     return (
       <div className="inventoryEditItem">
         <div className="inventoryEditItem__div1">
