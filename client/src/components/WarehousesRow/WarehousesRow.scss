@@ -9,6 +9,10 @@
     padding: 16px 7.500vw 25px;
     width: 100%;
 
+	&:hover {
+		background-color: $data-list-background-hover;
+	}    
+
     @include tablet {
         height: 100px;
         padding: 0 4.167vw 0;
@@ -110,5 +114,10 @@
         cursor: pointer;
         height: 23px;
         width: auto;
+    }
+
+    &__icon-link {
+        width: auto;
+        height: 23px;
     }
 }

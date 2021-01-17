@@ -131,6 +131,7 @@ export class Warehouses extends Component {
 
 
     render() {
+        document.title = "InStock - Warehouses";
 
         // Returns a blank area until Axios data for the state is loaded
         if (!this.state.tableData) {
@@ -194,8 +195,7 @@ export class Warehouses extends Component {
 
                 {this.state.tableData.filter( data => data.id !== this.state.tableAttributes.justDeleted ).map(data => {
                     return (<WarehousesRow key={data.id} data={data} deleteHandler={this.handleDeleteButton} />)
-                })}                
-    
+                })}            
             </section>
             </>
         )
