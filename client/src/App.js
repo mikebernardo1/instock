@@ -17,7 +17,7 @@ function App() {
             <Route path={["/", "/warehouses"]} exact component={Warehouses}></Route>
             <Route path="/inventory" exact component={Inventory}></Route>
             <Route path="/inventory/:id" component={InventoryItemDetails}></Route>
-            <Route path="/inventory/add" component={InventoryAddItem}></Route>
+            <Route path="/additem" component={InventoryAddItem}></Route>
             <Route path="/warehouse/:id/inventory" component={Inventory}></Route>
             <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
         </Switch>
