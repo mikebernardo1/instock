@@ -144,9 +144,11 @@
 				padding-left: 40px;
 			}
 			&-button {		
-				cursor: pointer;		
+				cursor: pointer;	
+				height: 23px;
+				width: auto;	
 				@include tablet {
-					padding-left: 16px;
+					padding-left: 10px;
 				}
 			}
 		}

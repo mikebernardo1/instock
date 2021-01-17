@@ -62,9 +62,17 @@ apiFetchCall = () => {
 
 // User presses Delete icon, the following runs
 handleDeleteButton = (targetID) => {
+  console.log('%c handleDeleteButton called. targetID is', "color: purple; font-weight: bold;");
+  console.log(targetID);
+
+
   if (this.state.tableAttributes.mainFunctionsEnabled) {
       Axios.get(`${this.apiURL}inventory/item/${targetID}`)
       .then(res => {
+
+        console.log('%c handleDeleteButton Axios response:', "color: purple; font-weight: bold;");
+        console.log(res);
+
           // Disable buttons while modal is visible
           this.setState({
               modalAttributes: {
@@ -103,6 +111,9 @@ handleCancel = () => {
 
 // Runs when the user selects the Delete button on the popup
 handleAxiosDelete = (targetID) => {
+  console.log('%c handleAxiosDelete called. targetID is', "color: blue; font-weight: bold;");
+  console.log(targetID);
+
       Axios.delete(`${this.apiURL}inventory/item/${targetID}`)
       .then(res => {
           console.log('Entry deleted.');
@@ -139,6 +150,9 @@ handleAxiosDelete = (targetID) => {
 
     // Renders delete inventory popup if visible=true
     if (this.state.modalAttributes.visible) {
+      console.log('%c We are rendering the modal. Its data is: ', "color: brown; font-weight: bold;");
+      console.log(this.state.modalAttributes.data);
+      
       modalRender = <InventoryDelete data={this.state.modalAttributes.data} cancelHandler={this.handleCancel} axiosDeleteHandler={this.handleAxiosDelete} />;
     }    
 

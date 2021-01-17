@@ -1,8 +1,13 @@
 import React from 'react';
-import '../Inventory/InventoryDelete.scss';
+import './InventoryDelete.scss';
 import close from '../../assets/icons/close-24px.svg'
 
 export default function InventoryDelete(props) {
+
+    let id = 0;
+    if (props.data.id) {
+        id = props.data.id;
+    }
 
     // Cancels the delete action and closes the popup
     const cancelEvent = () => {
@@ -15,7 +20,11 @@ export default function InventoryDelete(props) {
         props.axiosDeleteHandler(event.target.dataset.inventory_id);
     }    
 
+    console.log('%c InventoryDelete has been run. Its props:', "color: pink; font-weight: bold;");
+    console.log(props);
+
     return (
+
         <div className="inventoryDelete" onClick={cancelEvent}>
             <div className="inventoryDelete__divs-container">
                 <div className="inventoryDelete__div1">
@@ -27,7 +36,7 @@ export default function InventoryDelete(props) {
                 </div>
                 <div className="inventoryDelete__div2">
                     <button onClick={cancelEvent} className="inventoryDelete__div2-cancel inventoryDelete__div2-button">Cancel</button>
-                    <button onClick={axiosDeleteEvent} data-inventory_id={props.data.id} className="inventoryDelete__div2-delete inventoryDelete__div2-button">Delete</button>
+                    <button onClick={axiosDeleteEvent} data-inventory_id={id} className="inventoryDelete__div2-delete inventoryDelete__div2-button">Delete</button>
                 </div>
             </div>
         </div>
