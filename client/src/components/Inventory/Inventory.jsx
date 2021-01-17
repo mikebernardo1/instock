@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import InventoryAddItem from '../InventoryAddItem/InventoryAddItem';
-=======
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -145,13 +141,8 @@ handleAxiosDelete = (targetID) => {
     if (this.state.modalAttributes.visible) {
       modalRender = <InventoryDelete data={this.state.modalAttributes.data} cancelHandler={this.handleCancel} axiosDeleteHandler={this.handleAxiosDelete} />;
     }    
->>>>>>> 9facd14bfc97da083f330883542e54a66487ae45
 
     return (
-<<<<<<< HEAD
-        <div>
-            <InventoryAddItem/>
-=======
       <>
       {modalRender}
 
@@ -196,7 +187,6 @@ handleAxiosDelete = (targetID) => {
 
 
 
->>>>>>> 9facd14bfc97da083f330883542e54a66487ae45
         </div>
 
         
