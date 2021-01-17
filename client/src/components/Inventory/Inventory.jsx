@@ -53,9 +53,6 @@ apiFetchCall = () => {
   Axios
       .get(`${this.apiURL}inventory`)
       .then((res) => {
-        console.log('%c Axios fetched:', "color: purple; font-weight: bold;");
-        console.log(res);
-
           this.setState({
               tableData: res.data
           });
@@ -66,15 +63,8 @@ apiFetchCall = () => {
 // User presses Delete icon, the following runs
 handleDeleteButton = (targetID) => {
   if (this.state.tableAttributes.mainFunctionsEnabled) {
-
-    console.log('%c handleDeleteButton is running and has targetID:', "color: brown; font-weight: bold;");
-    console.log(targetID);
-
       Axios.get(`${this.apiURL}inventory/item/${targetID}`)
       .then(res => {
-        console.log('%c Axios handleDeleteButton GET result', "color: brown; font-weight: bold;");
-        console.log(res);
-
           // Disable buttons while modal is visible
           this.setState({
               modalAttributes: {
@@ -113,10 +103,6 @@ handleCancel = () => {
 
 // Runs when the user selects the Delete button on the popup
 handleAxiosDelete = (targetID) => {
-
-  console.log('%c Axios delete event started. Target ID:', "color: orange; font-weight: bold;");
-  console.log(targetID);
-
       Axios.delete(`${this.apiURL}inventory/item/${targetID}`)
       .then(res => {
           console.log('Entry deleted.');

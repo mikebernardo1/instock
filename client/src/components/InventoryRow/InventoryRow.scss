@@ -143,6 +143,9 @@
 			@include desktop {
 				padding-left: 40px;
 			}
+			&-link {
+				width: 100%;
+			}
 			&-button {		
 				cursor: pointer;		
 				@include tablet {

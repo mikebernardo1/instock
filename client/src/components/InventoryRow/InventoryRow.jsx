@@ -13,9 +13,6 @@ import './InventoryRow.scss';
 export default function InventoryRow({inventoryItem, deleteHandler, showWarehouse}) {
 
   const deleteEvent = (event) => {
-    console.log('%c Delete event is passing ID:', "color: red; font-weight: bold;");
-    console.log(event.target.dataset.inventory_id);
-
     // Passes the ID of that data row to the delete modal popup
     deleteHandler(event.target.dataset.inventory_id);
   }
@@ -31,9 +28,8 @@ export default function InventoryRow({inventoryItem, deleteHandler, showWarehous
     "quantity": textShortener(inventoryItem.quantity, 5, 1440)
   }
 
-  let editHandler = () => console.log("Edit button clicked.")
-
-  let itemUrl = `/inventory/item/${item.id}`
+  let itemUrl = `/inventory/item/${item.id}`;
+  let editUrl = `/inventory/item/${item.id}/edit`;
 
   const stockStatus =
       (item.status === 'Out of Stock')
@@ -90,7 +86,7 @@ export default function InventoryRow({inventoryItem, deleteHandler, showWarehous
         </div>
         <div className="i-item__block-actions">
             <img onClick={deleteEvent} data-inventory_id={item.id} className="i-item__block-actions-button" src={deleteIcon} alt="Delete"/>
-            <img onClick={editHandler} data-inventory_id={item.id} className="i-item__block-actions-button" src={editIcon} alt="Edit"/>
+            <Link className="i-item__block-actions-link" to={editUrl}><img data-inventory_id={item.id} className="i-item__block-actions-button" src={editIcon} alt="Edit"/></Link>
         </div>
       </div>
     </section>
