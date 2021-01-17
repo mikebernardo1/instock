@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import WarehousesRow from '../WarehousesRow/WarehousesRow'
 import WarehouseDelete from './WarehouseDelete'
-import Footer from '../Footer/Footer'
 
 import './warehouses.scss';
 
@@ -197,7 +196,6 @@ export class Warehouses extends Component {
                     return (<WarehousesRow key={data.id} data={data} deleteHandler={this.handleDeleteButton} />)
                 })}            
             </section>
-            <Footer/>
             </>
         )
     }   
