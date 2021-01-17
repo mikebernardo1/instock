@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Inventory/inventoryDelete.scss';
+import '../Inventory/InventoryDelete.scss';
 import close from '../../assets/icons/close-24px.svg'
 
 export default function InventoryDelete(props) {

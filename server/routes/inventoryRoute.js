@@ -1,20 +1,47 @@
 const express = require('express')
 const router = express.Router()
-const inventories = require('../inventories.json');
+const inventories = require('../data/inventories.json');
+const warehouses = require('../data/warehouses.json');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
 
 router
 .get('/', (req, res) => {
     return res.send(inventories);
-    });
+    })
 
-// .post goes here
+.post('/', (req, res) => {
+
+let newWarehouseID = warehouses.find((warehouse)=> warehouse.name == req.body.warehouseName);
+
+let upload = {
+    id: uuidv4(),
+    warehouseID: newWarehouseID.id,
+    warehouseName: req.body.warehouseName,
+    itemName:req.body.itemName,
+    description: req.body.description,
+    category: req.body.category,
+    status: req.body.status,
+    quantity:req.body.quantity,
+    };
+
+    inventories.push(upload);
+
+    fs.readFile('/data/inventories.json', function (err, data) {
+        let json = JSON.parse(data);
+        json.push(upload);    
+        fs.writeFile("/data/inventories.json", JSON.stringify(json), function(err){
+        if (err);
+        console.log('The "data to append" was appended to file!');
+        });
+    })
+
+return res.status(201).send(upload);});
 
 router
 .get('/:warehouseID', (req, res) => {
-	
     let warehouseInventory = inventories.filter((inventory)=> inventory.warehouseID == req.params.warehouseID);
-	return res.send(warehouseInventory);
+    return res.send(warehouseInventory);
     })
 
 router
@@ -31,7 +58,7 @@ router
 
         if (currentInventory.id == req.params.id){
 
-        fs.writeFile('inventories.json', JSON.stringify(newInventory), (err) => {if (err){
+        fs.writeFile('/data/inventories.json', JSON.stringify(newInventory), (err) => {if (err){
             console.log(err)
         }})
 

@@ -159,7 +159,7 @@ handleAxiosDelete = (targetID) => {
               </div>
 
               {/* Add New Inventory button */}
-              <Link to="/" className="inventory__button-link">
+              <Link to="/inventory/add" className="inventory__button-link">
                 <button className="inventory__add-new-inventory-button">+ Add New item</button>
               </Link>
           </div>
