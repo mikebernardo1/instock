@@ -4,14 +4,13 @@ import './InventoryAddItem.scss';
 import { Link } from 'react-router-dom';
 import arrowBack from '../../assets/icons/arrow_back-24px.svg';
 
-const apiURL = 'http://localhost:8080/inventory';
+const apiURL = 'http://localhost:8080/warehouse';
 
 export default class InventoryAddItem extends React.Component{
 
     state={
-        inventory: []
+        warehouses: []
     }
-
 
     componentDidMount(){
     Axios
@@ -19,7 +18,7 @@ export default class InventoryAddItem extends React.Component{
     .then((res) => {
         console.log(res.data)
         this.setState({
-            inventory: res.data
+            warehouses: res.data
         });
     })
     .catch((err) => console.log(err));
@@ -41,7 +40,21 @@ export default class InventoryAddItem extends React.Component{
     }
     
     render(){
-    return (
+        // let filteredCategory = this.state.inventory.map(item=> item.category)
+        // console.log('%c filteredCategory:', "color: orange; font-weight: bold;");
+        // console.log(filteredCategory);
+        
+        // let filteredWarehouse = this.state.inventory.map(name=> name.warehouseName)
+
+        const categoryArray = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health'];
+        
+
+        // categoryOptions = categoryArray.map(category => {
+        //     <option className="inventoryAddItem__div2-block-option">{category}</option>
+        // });
+        console.log(this.state.warehouses)
+    return(
+        // map out all options, make array here
         <div className="inventoryAddItem">
             <div className="inventoryAddItem__div1">
                 <Link to="/inventory"><img src={arrowBack} alt="arrow back" className="inventoryAddItem__div1-arrow"></img></Link>
@@ -62,7 +75,7 @@ export default class InventoryAddItem extends React.Component{
                         <div className="inventoryAddItem__div2-block">
                             <h3 className="inventoryAddItem__div2-block-categoryTitle">Category</h3>
                             <select className="inventoryAddItem__div2-block-select" name="category">
-                                <option className="inventoryAddItem__div2-block-option">{this.state.inventory.category}</option>
+                            {categoryArray.map((category, i)=> <option key = {i} className="inventoryAddItem__div2-block-option">{category}</option>)}
                             </select>
                         </div>
                     </div>
@@ -89,8 +102,8 @@ export default class InventoryAddItem extends React.Component{
                             <div className="inventoryAddItem__div3-block">
                                 <h3 className="inventoryAddItem__div3-block-categoryTitle">Warehouse</h3>
                                 <select className="inventoryAddItem__div2-block-select" name="warehouseName">
-                                    <option disabled defaultValue className="inventoryAddItem__div2-block-option">Please select</option>
-                                    <option className="inventoryAddItem__div2-block-option">{this.state.inventory.warehouseName}</option>
+                                    <option disabled className="inventoryAddItem__div2-block-option">Please select</option>
+                                    {this.state.warehouses.map((warehouse)=> <option key={warehouse.id} className="inventoryAddItem__div2-block-option">{warehouse.name}</option>)}
                                 </select>
                             </div>
                         </div>
