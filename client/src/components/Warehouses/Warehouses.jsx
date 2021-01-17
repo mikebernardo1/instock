@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import WarehousesRow from '../WarehousesRow/WarehousesRow';
 import WarehouseDelete from './WarehouseDelete';
-=======
-import WarehousesRow from '../WarehousesRow/WarehousesRow'
-import WarehouseDelete from './WarehouseDelete'
->>>>>>> 9facd14bfc97da083f330883542e54a66487ae45
+
 
 import './warehouses.scss';
 
