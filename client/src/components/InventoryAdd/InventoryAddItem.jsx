@@ -102,7 +102,7 @@ export default class InventoryAddItem extends React.Component{
                             <div className="inventoryAddItem__div3-block">
                                 <h3 className="inventoryAddItem__div3-block-categoryTitle">Warehouse</h3>
                                 <select className="inventoryAddItem__div2-block-select" name="warehouseName">
-                                    <option disabled className="inventoryAddItem__div2-block-option">Please select</option>
+                                    <option isdisabled className="inventoryAddItem__div2-block-option">Please select</option>
                                     {this.state.warehouses.map((warehouse)=> <option key={warehouse.id} className="inventoryAddItem__div2-block-option">{warehouse.name}</option>)}
                                 </select>
                             </div>

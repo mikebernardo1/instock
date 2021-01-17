@@ -17,7 +17,7 @@ export default function WarehousesRow(props) {
         props.deleteHandler(event.target.dataset.warehouse_id);
     }
 
-    let editUrl = `/warehouse/${props.data.id}/edit`;
+    let editUrl = `/warehouse/edit/${props.data.id}`;
 
     // Runs data through text shortener function
     // It only shortens a string if over a certain length
