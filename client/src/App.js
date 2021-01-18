@@ -1,4 +1,4 @@
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Warehouses from './components/Warehouses/Warehouses';
 import Inventory from './components/Inventory/Inventory';
