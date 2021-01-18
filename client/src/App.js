@@ -16,13 +16,12 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Switch>
-            <Route path="/" exact component={Warehouses} />
-              <Redirect from="/warehouses" to="/" />
-            <Route path="/inventory" exact component={Inventory} />
-            <Route path="/inventory/:id" exact component={InventoryItemDetails} />
-            <Route path="/additem" component={InventoryAddItem} />
-            <Route path="/inventory/edit/:id" component={InventoryEditItem} />
-            <Route path="/warehouse/:id" component={WarehouseDetails} />
+            <Route path={["/", "/warehouses"]} exact component={Warehouses}></Route>
+            <Route path="/inventory" exact component={Inventory}></Route>
+            <Route path="/inventory/item/:id" exact component={InventoryItemDetails}></Route>
+            <Route path="/additem" component={InventoryAddItem}></Route>
+            <Route path="/inventory/edit/:id" component={InventoryEditItem}></Route>
+            <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
         </Switch>
         <Footer/>
       </BrowserRouter>
