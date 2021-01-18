@@ -21,8 +21,8 @@ export default function InventoryDelete(props) {
                 <div className="inventoryDelete__div1">
                     <img onClick={cancelEvent} src={close} className="inventoryDelete__div1-close" alt="close button"></img>
                     <div className="inventoryDelete__div1-block">
-                        <h1 className="inventoryDelete__div1-block-title">Delete Television inventory item?</h1>
-                        <p className="inventoryDelete__div1-block-text">Please confirm that you’d like to delete Television from the inventory list. You won’t be able to undo this action.</p>
+                        <h1 className="inventoryDelete__div1-block-title">Delete {props.data.itemName} inventory item?</h1>
+                        <p className="inventoryDelete__div1-block-text">Please confirm that you’d like to delete {props.data.itemName} from the inventory list. You won’t be able to undo this action.</p>
                     </div>
                 </div>
                 <div className="inventoryDelete__div2">
