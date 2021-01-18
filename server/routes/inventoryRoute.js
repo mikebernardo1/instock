@@ -27,10 +27,10 @@ let upload = {
 
     inventories.push(upload);
 
-    fs.readFile('/data/inventories.json', function (err, data) {
+    fs.readFile('./data/inventories.json', function (err, data) {
         let json = JSON.parse(data);
         json.push(upload);    
-        fs.writeFile("/data/inventories.json", JSON.stringify(json), function(err){
+        fs.writeFile("./data/inventories.json", JSON.stringify(json), function(err){
         if (err);
         console.log('The "data to append" was appended to file!');
         });
@@ -58,7 +58,7 @@ router
 
         if (currentInventory.id == req.params.id){
 
-        fs.writeFile('/data/inventories.json', JSON.stringify(newInventory), (err) => {if (err){
+        fs.writeFile('./data/inventories.json', JSON.stringify(newInventory), (err) => {if (err){
             console.log(err)
         }})
 
