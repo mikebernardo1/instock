@@ -86,7 +86,7 @@ export default function InventoryRow({inventoryItem, deleteHandler, showWarehous
         </div>
         <div className="i-item__block-actions">
             <img onClick={deleteEvent} data-inventory_id={item.id} className="i-item__block-actions-button" src={deleteIcon} alt="Delete"/>
-            <Link className="i-item__block-actions-link" to={editUrl}><img data-inventory_id={item.id} className="i-item__block-actions-button" src={editIcon} alt="Edit"/></Link>
+            <Link className="i-item__block-actions-button" to={editUrl}><img data-inventory_id={item.id} className="i-item__block-actions-button" src={editIcon} alt="Edit"/></Link>
         </div>
       </div>
     </section>

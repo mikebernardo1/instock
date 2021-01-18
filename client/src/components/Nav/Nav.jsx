@@ -10,14 +10,14 @@ class Nav extends React.Component {
     return (
       <header className="nav">
         <div className="nav__block">
-          <NavLink className="nav__block-logo" to="/">
+          <NavLink className="nav__block-logo" to="/warehouses">
             <img className="nav__block-logo-img" src={Logo} alt="Instock Logo"/>
           </NavLink>
           <div className="nav__block-list">
             <NavLink 
               className="nav__block-list-item"
               activeClassName="nav__block-list-item--active"
-              to="/warehouses">Warehouses
+              to="/">Warehouses
             </NavLink>
             <NavLink 
               className="nav__block-list-item"
