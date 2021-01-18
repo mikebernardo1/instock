@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import WarehousesRow from '../WarehousesRow/WarehousesRow'
 import WarehouseDelete from './WarehouseDelete'
 
-import './warehouses.scss';
+import './Warehouses.scss';
 
 // Import images
 import searchIcon from '../../assets/icons/search-24px.svg';
