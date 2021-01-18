@@ -16,9 +16,9 @@ export default class InventoryAddItem extends React.Component{
     Axios
     .get(apiURL)
     .then((res) => {
-        console.log(res.data)
         this.setState({
-            warehouses: res.data
+            warehouses: res.data,
+            display:false
         });
     })
     .catch((err) => console.log(err));
@@ -40,19 +40,9 @@ export default class InventoryAddItem extends React.Component{
     }
     
     render(){
-        // let filteredCategory = this.state.inventory.map(item=> item.category)
-        // console.log('%c filteredCategory:', "color: orange; font-weight: bold;");
-        // console.log(filteredCategory);
-        
-        // let filteredWarehouse = this.state.inventory.map(name=> name.warehouseName)
 
         const categoryArray = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health'];
-        
 
-        // categoryOptions = categoryArray.map(category => {
-        //     <option className="inventoryAddItem__div2-block-option">{category}</option>
-        // });
-        console.log(this.state.warehouses)
     return(
         // map out all options, make array here
         <div className="inventoryAddItem">
@@ -95,14 +85,14 @@ export default class InventoryAddItem extends React.Component{
                                     </div>
                                 </div>
                             </div>
-                            <div className="inventoryAddItem__div3-block">
+                            <div className="inventoryAddItem__div3-block inventoryAddItem__div3-block-quantity">
                                 <h3 className="inventoryAddItem__div3-block-categoryTitle">Quantity</h3>
                                 <input type="number" min="0" className="inventoryAddItem__div2-block-textField1 inventoryAddItem__div3-block-textField1" name="quantity"></input>
                             </div>
                             <div className="inventoryAddItem__div3-block">
                                 <h3 className="inventoryAddItem__div3-block-categoryTitle">Warehouse</h3>
                                 <select className="inventoryAddItem__div2-block-select" name="warehouseName">
-                                    <option isdisabled className="inventoryAddItem__div2-block-option">Please select</option>
+                                    <option isdisabled="true" className="inventoryAddItem__div2-block-option">Please select</option>
                                     {this.state.warehouses.map((warehouse)=> <option key={warehouse.id} className="inventoryAddItem__div2-block-option">{warehouse.name}</option>)}
                                 </select>
                             </div>
