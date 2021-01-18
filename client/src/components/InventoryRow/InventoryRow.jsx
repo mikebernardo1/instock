@@ -29,7 +29,7 @@ export default function InventoryRow({inventoryItem, deleteHandler, showWarehous
   }
 
   let itemUrl = `/inventory/item/${item.id}`;
-  let editUrl = `/inventory/item/edit/${item.id}`;
+  let editUrl = `/inventory/edit/${item.id}`;
 
   const stockStatus =
       (item.status === 'Out of Stock')

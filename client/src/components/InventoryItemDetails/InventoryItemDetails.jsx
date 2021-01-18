@@ -25,7 +25,6 @@ export class InventoryItemDetails extends Component {
     Axios
       .get(`${this.apiURL}${productID}`)
       .then((res) => {
-        console.log(res.data)
         this.setState({
           item: res.data.itemName,
           description: res.data.description,

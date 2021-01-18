@@ -1,40 +1,70 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './InventoryEditItem.scss';
 import arrowBack from '../../assets/icons/arrow_back-24px.svg';
+const apiUrlWarehouse = 'http://localhost:8080/warehouse';
+const apiUrlItemDetails = 'http://localhost:8080/inventory/item/';
 
 class InventoryEditItem extends React.Component{
 
   itemToEdit = this.props.match.params.id
+  categoryArray = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health']
 
   state = {
-    id: "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
-    warehouseID: "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    warehouseName: "Manhattan",
-    itemName: "Television",
-    description: "This 50 inch, 4K LED TV provides a crystal-clear picture and vivid colors.",
-    category: "Electronics",
-    status: "In Stock",
-    quantity: 500
-    }
-  
+    warehouses: [],
+    id: "",
+    warehouseID: "",
+    warehouseName: "",
+    itemName: "",
+    description: "",
+    category: "",
+    status: "",
+    quantity: ''
+  }
   
   itemStock = this.state.status === "In Stock" ? true : false;
+
+  componentDidMount(){
+    axios.all([
+      axios.get(apiUrlWarehouse),
+      axios.get(`${apiUrlItemDetails}${this.itemToEdit}`)
+    ])
+    .then((res) => {
+      this.setState({
+        warehouses: res[0].data,
+
+        id: res[1].data.id,
+        warehouseID: res[1].data.warehouseID,
+        warehouseName: res[1].data.warehouseName,
+        itemName: res[1].data.itemName,
+        description: res[1].data.description,
+        category: res[1].data.category,
+        status: res[1].data.status,
+        quantity: res[1].data.quantity,
+
+        buttonDisabled: true
+      });
+    })
+    .catch((err) => console.log(err));
+  }
   
-  // submitHandler = (e) =>{
-  //   e.preventDefault();
-  //   const upload = {
-  //     warehouseName: e.target.warehouseName.value,
-  //     itemName: e.target.itemName.value,
-  //     description: e.target.description.value,
-  //     category: e.target.category.value,
-  //     status: e.target.status.value,
-  //     quantity: e.target.quantity.value,
-  //   }
-  
-  //   axios
-  //   .post('http://localhost:8080/inventory', upload)
-  // }
+  submitHandler = (e) => {
+    e.preventDefault();
+    const updatedItem = {
+      id: this.state.id,
+      warehouseID: this.state.warehouseID,
+      warehouseName: e.target.warehouseName.value,
+      itemName: e.target.itemName.value,
+      description: e.target.description.value,
+      category: e.target.category.value,
+      status: e.target.status.value,
+      quantity: e.target.quantity.value
+    }
+    axios
+      .put(`${apiUrlItemDetails}${this.itemToEdit}`, updatedItem)
+      .then(res => this.props.history.push(`/inventory/item/${this.itemToEdit}`))
+      .catch(err => console.log(err))
+  }
 
   // Functions to update states & hence the value in fields
   updateName = event => {
@@ -68,23 +98,43 @@ class InventoryEditItem extends React.Component{
   }
 
   updateWarehouse = event => {
+    let currentWarehouseName = event.target.value;
+    let currentWarehouseItem = this.state.warehouses.find(warehouse => currentWarehouseName === warehouse.name);
     this.setState({
-      warehouse: event.target.value
+      warehouseName: currentWarehouseName,
+      warehouseID: currentWarehouseItem.id
+    }, this.setButtonStatus()) // setting button status when required fields have data
+  }
+
+  updateStock = event => {
+    this.setState({
+      status: event.target.value
     }, this.setButtonStatus()) // setting button status when required fields have data
   }
 
   // Function to set the state of 'setButtonStatus'
-  // thereby enabling / disabling the Publish button
+  // thereby enabling / disabling the Save button
   setButtonStatus = () => {
-    // if(this.state.title !== '' && this.state.description !== '') {
-    //   this.setState({
-    //     buttonDisabled: false
-    //   })
-    // }
+    if(
+      this.state.warehouseName !== '' &&
+      this.state.itemName !== '' &&
+      this.state.description !== '' &&
+      this.state.category !== '' &&
+      this.state.status !== '' &&
+      this.state.quantity !== ''
+    ) {
+      this.setState({
+        buttonDisabled: false
+      })
+    }
   }
 
-  render(){
-    console.log(this.itemToEdit)
+  // Handle Cancel button
+  handleCancelButton = () => {
+    this.props.history.push(`/inventory/item/${this.itemToEdit}`)
+  }
+
+  render() {
     return (
       <div className="inventoryEditItem">
         <div className="inventoryEditItem__div1">
@@ -132,22 +182,12 @@ class InventoryEditItem extends React.Component{
                   value={this.state.category}
                   onChange={this.updateCategory}
                   >
-                    <option
-                      className="inventoryEditItem__div2-block-option"
-                      value="Electronics">Electronics
-                    </option>
-                    <option
-                      className="inventoryEditItem__div2-block-option"
-                      value="Tools">Tools
-                    </option>
-                    <option
-                      className="inventoryEditItem__div2-block-option"
-                      value="Clothing">Clothing
-                    </option>
-                    <option
-                      className="inventoryEditItem__div2-block-option"
-                      value="Sports">Sports
-                    </option>
+                    {this.categoryArray.map((category, i) =>
+                      <option
+                        key={i}
+                        className="inventoryEditItem__div2-block-option">{category}
+                      </option>
+                    )}
                 </select>
               </div>
             </div>
@@ -162,7 +202,8 @@ class InventoryEditItem extends React.Component{
                         type="radio"
                         className="inventoryEditItem__div3-block-buttons-radio"
                         name="status"
-                        value="In Stock">
+                        value="In Stock"
+                        onChange={this.updateStatus}>
                       </input>
                       <label className="inventoryEditItem__div3-block-buttons-div1-label">In Stock</label>
                     </div>
@@ -171,7 +212,8 @@ class InventoryEditItem extends React.Component{
                         type="radio"
                         className="inventoryEditItem__div3-block-buttons-radio"
                         name="status"
-                        value="Out of Stock">
+                        value="Out of Stock"
+                        onChange={this.updateStatus}>
                       </input>
                       <label className="inventoryEditItem__div3-block-buttons-div1-label">Out of Stock</label>
                     </div>
@@ -190,14 +232,19 @@ class InventoryEditItem extends React.Component{
                 </div>
                 <div className="inventoryEditItem__div3-block">
                   <h3 className="inventoryEditItem__div3-block-categoryTitle">Warehouse</h3>
-                  <select className="inventoryEditItem__div2-block-select" name="warehouseName">
-                    <option
-                      disabled
-                      defaultValue
-                      className="inventoryEditItem__div2-block-option"
-                      >Please select
-                    </option>
-                    <option className="inventoryEditItem__div2-block-option">King West</option>
+                  <select
+                    className="inventoryEditItem__div2-block-select"
+                    name="warehouseName"
+                    value={this.state.warehouseName}
+                    onChange={this.updateWarehouse}
+                  >
+                    {this.state.warehouses.map((warehouse)=>
+                      <option
+                        key={warehouse.id}
+                        name="warehouseName"
+                        className="inventoryEditItem__div2-block-option">{warehouse.name}
+                      </option>
+                    )}
                   </select>
                 </div>
               </div>
@@ -207,11 +254,14 @@ class InventoryEditItem extends React.Component{
         <div className="inventoryEditItem__div4">
           <button
             className="inventoryEditItem__div4-button inventoryEditItem__div4-button--white"
-            type="submit">Cancel
+            type="button"
+            onClick={this.handleCancelButton}
+            >Cancel
           </button>
           <button
             className="inventoryEditItem__div4-button inventoryEditItem__div4-button--blue"
             type="submit"
+            disabled={this.state.buttonDisabled}
             form="form">Save
           </button>
         </div>
