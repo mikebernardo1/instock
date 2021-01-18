@@ -131,7 +131,7 @@ class InventoryEditItem extends React.Component{
 
   // Handle Cancel button
   handleCancelButton = () => {
-    this.props.history.push(`/inventory/item/${this.itemToEdit}`)
+    this.props.history.goBack();
   }
 
   render() {
@@ -139,6 +139,7 @@ class InventoryEditItem extends React.Component{
       <div className="inventoryEditItem">
         <div className="inventoryEditItem__div1">
           <img src={arrowBack}
+            onClick={this.handleCancelButton}
             alt="arrow back"
             className="inventoryEditItem__div1-arrow">
           </img>
