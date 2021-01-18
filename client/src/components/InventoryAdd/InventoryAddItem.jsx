@@ -42,9 +42,9 @@ export default class InventoryAddItem extends React.Component{
     render(){
 
         const categoryArray = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health'];
-
+      
     return(
-        // map out all options, make array here
+
         <div className="inventoryAddItem">
             <div className="inventoryAddItem__div1">
                 <Link to="/inventory"><img src={arrowBack} alt="arrow back" className="inventoryAddItem__div1-arrow"></img></Link>
@@ -101,7 +101,7 @@ export default class InventoryAddItem extends React.Component{
                 </div>
             </form>
             <div className="inventoryAddItem__div4">
-                <button className="inventoryAddItem__div4-button inventoryAddItem__div4-button--white" type="submit">Cancel</button>
+                <Link to="/inventory"><button className="inventoryAddItem__div4-button inventoryAddItem__div4-button--white" type="submit">Cancel</button></Link>
                 <button className="inventoryAddItem__div4-button inventoryAddItem__div4-button--blue" type="submit" form="form">+ Add Item</button>
             </div>
         </div>
