@@ -161,7 +161,7 @@
 							border-radius: 20px;
 							font-size: 1.1rem;
 							text-transform: uppercase;
-							background-color: $stock-status-background;
+							background-color: $stock-status-background-out;
 							color: $out-of-stock-label;
 							font-family: $titillium-semibold;
 							@include tablet {
@@ -169,6 +169,7 @@
 							}
 							&-in {
 								color: $in-stock-label;
+								background-color: $stock-status-background;
 							}
 						}
 					}
