@@ -8,6 +8,8 @@ import InventoryAddItem from './components/InventoryAdd/InventoryAddItem';
 import Footer from './components/Footer/Footer';
 import './styles/main.scss';
 
+import InventoryEditItem from './components/InventoryEditItem/InventoryEditItem';
+
 function App() {
   return (
     <div className="App">
@@ -16,9 +18,9 @@ function App() {
         <Switch>
             <Route path={["/", "/warehouses"]} exact component={Warehouses}></Route>
             <Route path="/inventory" exact component={Inventory}></Route>
-            <Route path="/inventory/:id" component={InventoryItemDetails}></Route>
+            <Route path="/inventory/:id" exact component={InventoryItemDetails}></Route>
             <Route path="/additem" component={InventoryAddItem}></Route>
-            <Route path="/warehouse/:id/inventory" component={Inventory}></Route>
+            <Route path="/inventory/edit/:id" component={InventoryEditItem}></Route>
             <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
         </Switch>
         <Footer/>

@@ -5,7 +5,7 @@ import './InventoryItemDetails.scss';
 
 export class InventoryItemDetails extends Component {
 
-  apiURL = 'http://localhost:8080/inventory/';
+  apiURL = 'http://localhost:8080/inventory/item/';
   requestedItem = this.props.match.params.id;
 
   state = {
@@ -25,6 +25,7 @@ export class InventoryItemDetails extends Component {
     Axios
       .get(`${this.apiURL}${productID}`)
       .then((res) => {
+        console.log(res.data)
         this.setState({
           item: res.data.itemName,
           description: res.data.description,
