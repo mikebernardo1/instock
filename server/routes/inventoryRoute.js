@@ -58,7 +58,7 @@ router
 
         if (currentInventory.id == req.params.id){
 
-        fs.writeFile('/data/inventories.json', JSON.stringify(newInventory), (err) => {if (err){
+        fs.writeFile('./data/inventories.json', JSON.stringify(newInventory), (err) => {if (err){
             console.log(err)
         }})
 

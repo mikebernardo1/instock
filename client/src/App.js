@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Warehouses from './components/Warehouses/Warehouses';
 import Inventory from './components/Inventory/Inventory';
@@ -16,12 +16,13 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Switch>
-            <Route path={["/", "/warehouses"]} exact component={Warehouses}></Route>
-            <Route path="/inventory" exact component={Inventory}></Route>
-            <Route path="/inventory/:id" exact component={InventoryItemDetails}></Route>
-            <Route path="/additem" component={InventoryAddItem}></Route>
-            <Route path="/inventory/edit/:id" component={InventoryEditItem}></Route>
-            <Route path="/warehouse/:id" component={WarehouseDetails}></Route>
+            <Route path="/" exact component={Warehouses} />
+              <Redirect from="/warehouses" to="/" />
+            <Route path="/inventory" exact component={Inventory} />
+            <Route path="/inventory/:id" exact component={InventoryItemDetails} />
+            <Route path="/additem" component={InventoryAddItem} />
+            <Route path="/inventory/edit/:id" component={InventoryEditItem} />
+            <Route path="/warehouse/:id" component={WarehouseDetails} />
         </Switch>
         <Footer/>
       </BrowserRouter>

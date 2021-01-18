@@ -40,6 +40,8 @@ export default class InventoryAddItem extends React.Component{
     }
     
     render(){
+        document.title = "InStock - Add New Inventory Item";
+
         // let filteredCategory = this.state.inventory.map(item=> item.category)
         // console.log('%c filteredCategory:', "color: orange; font-weight: bold;");
         // console.log(filteredCategory);

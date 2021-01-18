@@ -13,8 +13,6 @@ import './InventoryRow.scss';
 export default function InventoryRow({inventoryItem, deleteHandler, showWarehouse}) {
 
   const deleteEvent = (event) => {
-    console.log('%c deleteEvent called. targetID is', "color: green; font-weight: bold;");
-    console.log(event.target.dataset.inventory_id);
     // Passes the ID of that data row to the delete modal popup
     deleteHandler(event.target.dataset.inventory_id);
   }

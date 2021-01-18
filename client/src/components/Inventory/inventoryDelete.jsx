@@ -20,9 +20,6 @@ export default function InventoryDelete(props) {
         props.axiosDeleteHandler(event.target.dataset.inventory_id);
     }    
 
-    console.log('%c InventoryDelete has been run. Its props:', "color: pink; font-weight: bold;");
-    console.log(props);
-
     return (
 
         <div className="inventoryDelete" onClick={cancelEvent}>
