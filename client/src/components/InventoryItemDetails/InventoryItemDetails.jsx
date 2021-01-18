@@ -43,7 +43,7 @@ export class InventoryItemDetails extends Component {
   }
 
   handleEditButton = () => {
-    this.props.history.push(`/inventory/${this.requestedItem}/edit`);
+    this.props.history.push(`/inventory/edit/${this.requestedItem}`);
   }
 
   render() {
