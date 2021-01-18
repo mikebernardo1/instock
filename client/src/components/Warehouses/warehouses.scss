@@ -82,7 +82,7 @@
     }
 
     @include desktop {
-        width: 94%;
+        width: 92%;
     }
 }
 
@@ -96,7 +96,7 @@
 
     @include desktop {  
         // Width of col-5 is 100 minus width of cols-1-to-4         
-        width: 6%;
+        width: 8%;
     }
 }    
 
@@ -207,6 +207,7 @@
         @include tablet {
             cursor: pointer;
             height: 15px;
+            // margin-left: 16px;
             position: relative;
             top: 3px; // Slight vertical adjustment
             width: auto;

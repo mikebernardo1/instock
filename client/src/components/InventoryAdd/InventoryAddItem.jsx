@@ -40,6 +40,7 @@ export default class InventoryAddItem extends React.Component{
     }
     
     render(){
+        document.title = "InStock - Add New Inventory Item";
 
         const categoryArray = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health'];
       

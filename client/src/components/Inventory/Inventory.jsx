@@ -65,6 +65,7 @@ handleDeleteButton = (targetID) => {
   if (this.state.tableAttributes.mainFunctionsEnabled) {
       Axios.get(`${this.apiURL}inventory/item/${targetID}`)
       .then(res => {
+
           // Disable buttons while modal is visible
           this.setState({
               modalAttributes: {
@@ -103,6 +104,7 @@ handleCancel = () => {
 
 // Runs when the user selects the Delete button on the popup
 handleAxiosDelete = (targetID) => {
+
       Axios.delete(`${this.apiURL}inventory/item/${targetID}`)
       .then(res => {
           console.log('Entry deleted.');
