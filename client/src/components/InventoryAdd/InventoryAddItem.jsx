@@ -111,7 +111,7 @@ export default class InventoryAddItem extends React.Component{
                 </div>
             </form>
             <div className="inventoryAddItem__div4">
-                <button className="inventoryAddItem__div4-button inventoryAddItem__div4-button--white" type="submit">Cancel</button>
+                <Link to="/inventory"><button className="inventoryAddItem__div4-button inventoryAddItem__div4-button--white" type="submit">Cancel</button></Link>
                 <button className="inventoryAddItem__div4-button inventoryAddItem__div4-button--blue" type="submit" form="form">+ Add Item</button>
             </div>
         </div>
